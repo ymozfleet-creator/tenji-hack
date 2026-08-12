@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>展示会ハック TENJI-HACK|展示会営業・アポ獲得代行(出展企業向け)| RELIGHT inc.</title>
+<title>展示会ハック TENJI-HACK|展示会営業・アポ獲得代行 | RELIGHT</title>
 <meta name="description" content="展示会で集めた名刺、商談に変わっていますか。貴社にお願いするのは名刺と営業ツールの提供だけ。トヨタ生産方式を基盤に、営業設計からフォロー架電・商談アポ獲得まで一気通貫で代行します。設計費25万円・名刺データ化100円/枚・商談アポ1件15,000円〜。">
 <meta property="og:title" content="展示会ハック TENJI-HACK|展示会営業・アポ獲得代行">
 <meta property="og:description" content="展示会で集めた名刺を商談に変える。トヨタ式の標準工程で、フォロー架電から商談アポ獲得まで一気通貫代行。月額固定費なし・成果報酬中心。">
@@ -15,9 +15,9 @@
 :root{
   --navy:#0A1628;
   --navy-sub:#142238;
-  --blue:#2E7CF6;
-  --blue-soft:rgba(46,124,246,.12);
-  --yellow:#E8FF3A;
+  --blue:#2563EB;
+  --blue-soft:rgba(37,99,235,.10);
+  --yellow:#D9A93B;
   --white:#F7F9FC;
   --ink:#1E2A3A;
   --line:rgba(30,42,58,.12);
@@ -35,18 +35,18 @@ section{padding:120px 0}
 .sec-dark{background:var(--navy);color:var(--white)}
 .sec-dark .sec-lead{color:rgba(247,249,252,.78)}
 .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--blue);border:1px solid currentColor;border-radius:999px;padding:4px 14px;margin-bottom:22px}
-.sec-dark .eyebrow{color:var(--yellow);border-color:rgba(232,255,58,.5)}
+.sec-dark .eyebrow{color:var(--yellow);border-color:rgba(217,169,59,.55)}
 h2{font-weight:900;font-size:clamp(26px,4vw,38px);line-height:1.55;letter-spacing:.01em;margin-bottom:22px}
 .sec-lead{max-width:720px;font-size:16px;color:rgba(30,42,58,.82)}
-.mark{background:linear-gradient(transparent 68%,rgba(232,255,58,.85) 68%);padding:0 2px}
-.sec-dark .mark{background:linear-gradient(transparent 68%,rgba(232,255,58,.4) 68%)}
+.mark{background:linear-gradient(transparent 68%,rgba(217,169,59,.55) 68%);padding:0 2px}
+.sec-dark .mark{background:linear-gradient(transparent 68%,rgba(217,169,59,.4) 68%)}
 
 /* ---------- buttons ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;border-radius:var(--radius);padding:16px 34px;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;cursor:pointer;border:2px solid transparent}
 .btn:hover{transform:translateY(-2px)}
 .btn:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
-.btn-primary{background:var(--blue);color:#fff;box-shadow:0 6px 20px rgba(46,124,246,.35)}
-.btn-primary:hover{box-shadow:0 10px 26px rgba(46,124,246,.45)}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 6px 20px rgba(37,99,235,.35)}
+.btn-primary:hover{box-shadow:0 10px 26px rgba(37,99,235,.45)}
 .btn-ghost{border-color:rgba(247,249,252,.55);color:var(--white)}
 .btn-ghost:hover{background:rgba(247,249,252,.08)}
 .btn-ghost.on-light{border-color:var(--navy);color:var(--navy)}
@@ -70,10 +70,10 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,
 .fv{background:var(--navy);color:var(--white);padding:170px 0 0;position:relative;overflow:hidden}
 .fv-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
 .fv h1{font-weight:900;font-size:clamp(32px,5vw,52px);line-height:1.5;letter-spacing:.01em;margin:20px 0 26px}
-.fv h1 .hl{color:var(--yellow)}
+.fv h1 .hl{color:#fff;border-bottom:5px solid var(--yellow);padding-bottom:2px}
 .fv-sub{color:rgba(247,249,252,.82);font-size:16.5px;max-width:520px}
 .fv-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:38px}
-.fv-label{font-size:13px;font-weight:700;letter-spacing:.16em;color:var(--yellow);border:1px solid rgba(232,255,58,.5);border-radius:999px;padding:5px 16px;display:inline-block}
+.fv-label{font-size:13px;font-weight:700;letter-spacing:.16em;color:var(--yellow);border:1px solid rgba(217,169,59,.55);border-radius:999px;padding:5px 16px;display:inline-block}
 .trust-bar{margin-top:64px;border-top:1px solid var(--line-dark);background:var(--navy-sub)}
 .trust-inner{display:flex;flex-wrap:wrap;justify-content:center;gap:0;max-width:1080px;margin:0 auto}
 .trust-item{flex:1;min-width:220px;text-align:center;padding:26px 18px;border-left:1px solid var(--line-dark)}
@@ -86,7 +86,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,
 .cardv{position:absolute;width:150px;height:88px;border-radius:6px;background:rgba(247,249,252,.07);border:1px solid rgba(247,249,252,.14);box-shadow:0 8px 24px rgba(0,0,0,.3)}
 .cardv::before{content:"";position:absolute;left:14px;top:16px;width:56%;height:7px;border-radius:4px;background:rgba(247,249,252,.22)}
 .cardv::after{content:"";position:absolute;left:14px;top:34px;width:36%;height:5px;border-radius:4px;background:rgba(247,249,252,.14)}
-.cardv.lit{background:rgba(46,124,246,.22);border-color:var(--blue);box-shadow:0 0 0 1px var(--blue),0 10px 30px rgba(46,124,246,.4)}
+.cardv.lit{background:rgba(37,99,235,.20);border-color:var(--blue);box-shadow:0 0 0 1px var(--blue),0 10px 30px rgba(37,99,235,.4)}
 .cardv.lit::before{background:var(--blue)}
 .cardv.lit .tag{position:absolute;right:-10px;top:-12px;background:var(--yellow);color:var(--navy);font-size:11px;font-weight:900;border-radius:999px;padding:2px 10px;letter-spacing:.05em}
 @media(max-width:900px){.fv-grid{grid-template-columns:1fr}.cards-visual{display:none}}
@@ -102,9 +102,8 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,
 
 /* ---------- process ---------- */
 .proc-intro{max-width:760px;color:rgba(247,249,252,.82)}
-.pipeline{margin-top:64px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
-.step{position:relative;padding:28px 20px 24px;border-left:1px solid var(--line-dark)}
-.step:first-child{border-left:none}
+.pipeline{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative}
+.step{position:relative;padding:28px 22px 24px;border:1px solid var(--line-dark);border-radius:var(--radius)}
 .step .s-num{font-size:15px;color:var(--yellow);letter-spacing:.1em;font-weight:800}
 .step h3{font-size:16.5px;font-weight:700;margin:8px 0 10px;line-height:1.55}
 .step p{font-size:13px;color:rgba(247,249,252,.7);line-height:1.8}
@@ -114,7 +113,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,
 .who.you{background:var(--yellow);color:var(--navy)}
 .ours-band{margin-top:26px;border-top:2px solid var(--blue);padding-top:10px;font-size:13px;color:var(--blue);font-weight:700;letter-spacing:.06em;text-align:center}
 .proc-note{margin-top:44px;font-size:14px;color:rgba(247,249,252,.62);border-left:3px solid var(--blue);padding-left:16px;max-width:720px}
-@media(max-width:900px){.pipeline{grid-template-columns:1fr}.step{border-left:none;border-top:1px solid var(--line-dark)}.step:first-child{border-top:none}}
+@media(max-width:900px){.pipeline{grid-template-columns:1fr}}
 
 /* ---------- reasons ---------- */
 .reason{display:grid;grid-template-columns:120px 1fr;gap:34px;padding:52px 0;border-top:1px solid var(--line);align-items:start}
@@ -138,13 +137,17 @@ table.compare{width:100%;min-width:720px;border-collapse:separate;border-spacing
 
 /* ---------- pricing ---------- */
 .price-rows{max-width:760px;margin:56px auto 0}
-.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:30px 8px;border-bottom:1px solid var(--line-dark);flex-wrap:wrap}
-.price-row .p-name{font-weight:700;font-size:18px}
+.price-row{display:grid;grid-template-columns:1fr auto;align-items:baseline;column-gap:24px;padding:30px 8px;border-bottom:1px solid var(--line-dark)}
+.price-row .p-name{font-weight:700;font-size:18px;min-width:0}
 .price-row .p-name small{display:block;font-weight:400;font-size:12.5px;color:rgba(247,249,252,.6);margin-top:6px;line-height:1.8}
-.price-row .p-val{font-size:34px;color:var(--white)}
+.price-row .p-val{font-size:34px;color:var(--white);text-align:right;white-space:nowrap;justify-self:end}
 .price-row .p-val b{border-bottom:4px solid var(--yellow);padding-bottom:2px}
 .price-row .p-val small{font-size:15px;font-weight:500;color:rgba(247,249,252,.7);margin-left:4px}
 .price-opt{max-width:760px;margin:30px auto 0;background:rgba(247,249,252,.05);border:1px dashed rgba(247,249,252,.3);border-radius:var(--radius);padding:22px 26px;font-size:14.5px;color:rgba(247,249,252,.85)}
+@media(max-width:640px){
+  .price-row{grid-template-columns:1fr;row-gap:10px}
+  .price-row .p-val{justify-self:end;font-size:30px}
+}
 .strict{max-width:760px;margin:80px auto 0}
 .strict h3{font-size:clamp(21px,3vw,27px);font-weight:900;margin-bottom:18px;line-height:1.6}
 .strict p{color:rgba(247,249,252,.8);font-size:15px}
@@ -152,7 +155,7 @@ table.compare{width:100%;min-width:720px;border-collapse:separate;border-spacing
 .strict li{padding:12px 0 12px 34px;position:relative;border-bottom:1px solid var(--line-dark);font-size:15px}
 .strict li::before{content:"";position:absolute;left:4px;top:22px;width:16px;height:16px;border-radius:50%;background:var(--blue)}
 .strict li.no::before{background:transparent;border:2px solid rgba(247,249,252,.35)}
-.strict li.no{color:rgba(247,249,252,.5);text-decoration:line-through;text-decoration-color:rgba(232,255,58,.7);text-decoration-thickness:2px}
+.strict li.no{color:rgba(247,249,252,.5);text-decoration:line-through;text-decoration-color:rgba(217,169,59,.8);text-decoration-thickness:2px}
 
 /* ---------- flow ---------- */
 .flow{counter-reset:fstep;margin-top:56px;max-width:820px}
@@ -192,6 +195,34 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .reveal.show{opacity:1;transform:none}
+@media(max-width:640px){
+  section{padding:72px 0}
+  .wrap{padding:0 20px}
+  .fv{padding:110px 0 0}
+  .fv h1{font-size:30px;line-height:1.55}
+  .fv-sub{font-size:15px}
+  .fv-cta{margin-top:28px}
+  .fv-cta .btn{width:100%;justify-content:center}
+  .trust-item{min-width:50%;flex:1 1 50%;padding:18px 8px;border-top:1px solid var(--line-dark)}
+  .trust-item .t-num{font-size:20px}
+  .trust-item .t-cap{font-size:11.5px}
+  h2{font-size:24px}
+  .bridge{font-size:18px}
+  .pain-card{padding:26px 22px}
+  .step{padding:22px 18px}
+  .fstep{grid-template-columns:48px 1fr;gap:16px}
+  .fstep .f-num{width:42px;height:42px;font-size:15px}
+  .reason .r-num{font-size:44px}
+  .closing .fv-cta .btn{width:100%}
+  body{padding-bottom:76px} /* 固定CTAバー分 */
+}
+.scroll-hint{display:none;font-size:12px;color:var(--blue);font-weight:700;margin-top:10px}
+@media(max-width:900px){.scroll-hint{display:block}}
+/* 固定CTAバー(モバイルのみ・FV通過後に表示) */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:120;background:rgba(10,22,40,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line-dark);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;transform:translateY(110%);transition:transform .3s ease}
+.sticky-cta.visible{transform:none}
+.sticky-cta .btn{width:100%;padding:14px 20px;font-size:15px}
+@media(max-width:820px){.sticky-cta{display:block}}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
@@ -203,7 +234,7 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
 
 <header>
   <div class="nav">
-    <a class="logo" href="#top">TENJI-HACK <small>by RELIGHT inc.</small></a>
+    <a class="logo" href="#top">TENJI-HACK <small>by RELIGHT</small></a>
     <nav class="nav-links" aria-label="ページ内メニュー">
       <a href="#pain">課題</a>
       <a href="#process">仕組み</a>
@@ -225,7 +256,6 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
       <p class="fv-sub">出展の成果は、会期後の2週間で決まります。貴社にお願いするのは、名刺と営業ツールのご提供だけ。営業設計からフォロー架電、商談アポの獲得まで、当社が一気通貫で代行します。</p>
       <div class="fv-cta">
         <a class="btn btn-primary" href="#contact">まずは無料オンライン相談<span class="arrow">→</span></a>
-        <a class="btn btn-ghost" href="#contact">サービス資料をダウンロード</a>
       </div>
     </div>
     <div class="cards-visual" aria-hidden="true">
@@ -278,42 +308,48 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
   <div class="wrap">
     <span class="eyebrow reveal">METHOD</span>
     <h2 class="reveal">名刺の束を、商談リストに変える。<br>トヨタ生産方式で設計された、展示会営業の標準工程。</h2>
-    <p class="proc-intro reveal">展示会ハックの運営会社RELIGHTは、トヨタ自動車出身の代表が立ち上げた、トヨタ生産方式(TPS)を基盤とするコンサルティング会社です。私たちは展示会営業を「センスの世界」ではなく「工程」として扱います。標準作業・見える化・日次改善——製造現場で磨かれた原則を、貴社の名刺フォローに実装します。</p>
+    <p class="proc-intro reveal">展示会ハックの本サービスを運営するRELIGHTは、トヨタ自動車出身の代表による、トヨタ生産方式(TPS)を基盤とするコンサルティングファームです。私たちは展示会営業を「センスの世界」ではなく「工程」として扱います。標準作業・見える化・日次改善——製造現場で磨かれた原則を、貴社の名刺フォローに実装します。</p>
 
     <div class="pipeline">
       <div class="step reveal">
         <span class="who us">当社</span>
         <div class="s-num num">01</div>
-        <h3>営業設計・教育</h3>
-        <p>ターゲット定義・トークスクリプト・顧客管理シートを設計。名刺の"質"は会期中に決まるため、貴社ブーススタッフへの教育もここで実施します。</p>
+        <h3>営業設計</h3>
+        <p>ターゲット定義・トークスクリプト・顧客管理シートを設計。NDA締結のうえ、フォロー体制を構築します。</p>
       </div>
       <div class="step client reveal">
         <span class="who you">貴社</span>
         <div class="s-num num">02</div>
         <h3>名刺・ツールのご提供</h3>
-        <p>会期後、獲得名刺と営業ツール(チラシ等)をお預かりします。貴社の作業はここまでです。</p>
+        <p>展示会で活用する名刺と営業ツール(チラシ等)をお預かりします。貴社の作業はここまでです。</p>
       </div>
       <div class="step reveal">
         <span class="who us">当社</span>
         <div class="s-num num">03</div>
-        <h3>データ化・選別</h3>
-        <p>1枚100円で即データ化し、役職・ニーズ・温度感でA/B/Cランクに選別。架電の優先順位を設計します。</p>
+        <h3>展示会での営業実施</h3>
+        <p>当社営業担当が展示会へ。設計済みトークでターゲットに営業し、名刺交換・一次対話を行います。</p>
       </div>
       <div class="step reveal">
         <span class="who us">当社</span>
         <div class="s-num num">04</div>
+        <h3>データ化・選別</h3>
+        <p>獲得した名刺を1枚100円で即データ化し、役職・ニーズ・温度感でA/B/Cランクに選別。架電の優先順位を設計します。</p>
+      </div>
+      <div class="step reveal">
+        <span class="who us">当社</span>
+        <div class="s-num num">05</div>
         <h3>フォロー架電</h3>
         <p>温度が高い2週間以内に、設計済みトークで架電。全件の結果を管理シートに記録し、日次で見える化します。</p>
       </div>
       <div class="step reveal">
         <span class="who us">当社</span>
-        <div class="s-num num">05</div>
+        <div class="s-num num">06</div>
         <h3>商談アポ連携</h3>
         <p>日程確定済みのアポを、対話メモ付きで貴社へ。貴社は商談に集中するだけです。</p>
       </div>
     </div>
     <div class="ours-band reveal">設計・データ化・選別・架電・日程調整——実務はすべて当社が実行します</div>
-    <p class="proc-note reveal">会期中のブース運営は貴社にて。当社は、その成果を最大化する「前(設計・教育)」と「後(フォロー・アポ化)」を担います。</p>
+    <p class="proc-note reveal">貴社の出展・ブース運営そのものは当社の業務範囲外です(出展の有無は問いません)。当社は、獲得された名刺を商談に変える「営業設計」と「フォロー・アポ化」を担います。</p>
   </div>
 </section>
 
@@ -363,15 +399,16 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
           </tr>
         </thead>
         <tbody>
-          <tr><td>初期コスト</td><td>0円(ただし工数負担大)</td><td>初期+月額固定が主流</td><td class="hero-col">設計費25万円のみ</td></tr>
+          <tr><td>初期コスト</td><td>0円(ただし工数負担大)</td><td>初期+月額固定が主流</td><td class="hero-col">設計費25万円のみ(2回目以降10万円〜)</td></tr>
           <tr><td>月額固定費</td><td>−</td><td>発生するのが一般的</td><td class="hero-col">なし</td></tr>
           <tr><td>架電リストの質</td><td>名刺のまま放置されがち</td><td>購入リスト等・接点なし</td><td class="hero-col">接点済みの自社名刺を選別して活用</td></tr>
           <tr><td>フォローの品質</td><td>担当者次第でバラつき</td><td>オペレーター次第</td><td class="hero-col">標準作業書で均質化</td></tr>
-          <tr><td>展示会の知見</td><td>−</td><td>汎用テレアポ</td><td class="hero-col">出展設計〜教育まで対応</td></tr>
+          <tr><td>展示会の知見</td><td>−</td><td>汎用テレアポ</td><td class="hero-col">展示会リード専門の営業設計</td></tr>
           <tr><td>貴社の工数</td><td>膨大</td><td>リスト・トーク監修</td><td class="hero-col">名刺とツールの提供のみ</td></tr>
         </tbody>
       </table>
     </div>
+    <p class="scroll-hint">← 表は横にスクロールできます →</p>
     <p class="table-note">※比較は一般的な相場・傾向に基づくものです。各手法にも有効な場面があります。当社は「展示会名刺の商談化」において最適な選択肢であることをお約束します。</p>
   </div>
 </section>
@@ -384,7 +421,7 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
 
     <div class="price-rows">
       <div class="price-row reveal">
-        <div class="p-name">初期サービス設計費<small>ターゲット定義・トークスクリプト・顧客管理シート・ブーススタッフ教育</small></div>
+        <div class="p-name">初期サービス設計費<small>トークスクリプト・営業教育・顧客管理・NDA契約締結業務 など<br>2回目以降:100,000円〜(同一商材・同一ターゲット設計の再利用に限る。別商材・ターゲット変更を伴う場合は新規設計費を適用)</small></div>
         <div class="p-val num">¥<b>250,000</b></div>
       </div>
       <div class="price-row reveal">
@@ -420,41 +457,36 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
 <section id="flow">
   <div class="wrap">
     <span class="eyebrow reveal">FLOW</span>
-    <h2 class="reveal">お問い合わせから商談まで。<br>貴社の作業は2つだけ。</h2>
+    <h2 class="reveal">お問い合わせから商談まで。<br>貴社の作業は、名刺とツールのご提供だけ。</h2>
 
     <div class="flow">
       <div class="fstep reveal">
         <div class="f-num num">1</div>
         <div><h3>お問い合わせ・無料相談 <span class="who us">当社</span></h3>
-        <p>出展予定(または出展済み)の展示会と商材をヒアリング。想定リード数から概算の見立てをその場でお伝えします。</p></div>
+        <p>ご希望の商材をヒアリングし、営業に最適な展示会をご提案。想定リード数から概算の見立てをその場でお伝えします。</p></div>
       </div>
       <div class="fstep reveal">
         <div class="f-num num">2</div>
-        <div><h3>営業設計・スタッフ教育 <span class="who us">当社</span></h3>
-        <p>トークスクリプト・管理シートを設計し、貴社ブーススタッフへ教育を実施します。(初期サービス設計費の範囲)</p></div>
+        <div><h3>営業設計 <span class="who us">当社</span></h3>
+        <p>トークスクリプト・顧客管理シートを設計し、NDA締結のうえフォロー体制を構築します。(初期サービス設計費の範囲)</p></div>
       </div>
       <div class="fstep client-step reveal">
         <div class="f-num num">3</div>
-        <div><h3>展示会出展 <span class="who you">貴社</span></h3>
-        <p>貴社にて出展・名刺獲得。設計済みのヒアリング項目で、名刺の質を最大化します。</p></div>
-      </div>
-      <div class="fstep client-step reveal">
-        <div class="f-num num">4</div>
         <div><h3>名刺・営業ツールのご提供 <span class="who you">貴社</span></h3>
-        <p>会期終了後、名刺と営業ツールをお預かりします。貴社の作業はここで完了です。</p></div>
+        <p>展示会で活用する名刺と営業ツールをお預かりし、当社営業担当が展示会へ営業を実施します。貴社の作業はここで完了です。</p></div>
       </div>
       <div class="fstep reveal">
-        <div class="f-num num">5</div>
+        <div class="f-num num">4</div>
         <div><h3>データ化・選別・フォロー架電 <span class="who us">当社</span></h3>
         <p>即日データ化とランク選別のうえ、2週間以内に架電。全件の結果を日次でご報告します。</p></div>
       </div>
       <div class="fstep reveal">
-        <div class="f-num num">6</div>
+        <div class="f-num num">5</div>
         <div><h3>商談アポのご連携 <span class="who us">当社</span></h3>
         <p>日程確定・前日確認済みのアポを、対話メモ付きでご連携します。</p></div>
       </div>
     </div>
-    <p class="flow-time reveal">会期終了から初回アポ連携まで:最短2週間</p>
+    <p class="flow-time reveal">展示会終了から初回アポ連携まで:最短2週間</p>
   </div>
 </section>
 
@@ -477,6 +509,10 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
         <div class="faq-a">商談アポの報酬は完全成果報酬のため、獲得件数がゼロの場合は発生しません。その場合のご負担は初期サービス設計費と名刺データ化費用のみです。なお、無料相談の段階で見込みが立たないと判断した場合は、受注前に正直にお伝えします。</div>
       </details>
       <details>
+        <summary>お支払いの流れを教えてください。</summary>
+        <div class="faq-a">2段階に分かれます。まずご契約時に、初期サービス設計費を着手金として前払いいただき、ご入金確認後に営業設計へ着手します。展示会でのフォロー架電期間が終了した後、活動メモ・獲得名刺一覧・有効アポ一覧をまとめた成果報告書をお渡しし、その実績分(名刺データ化・有効商談アポ獲得)を別途ご請求します。請求内容はすべて報告書の記載と対応しているため、何にいくらかかったかが一目で確認できます。</div>
+      </details>
+      <details>
         <summary>すでに展示会が終わっていて、名刺だけ手元にある状態でも依頼できますか?</summary>
         <div class="faq-a">承ります。名刺の鮮度が落ちるほどアポ率は下がるため、お早めのご相談をおすすめしますが、過去の展示会名刺の掘り起こしにも対応可能です。状態を伺ったうえで、現実的な見立てをご提示します。</div>
       </details>
@@ -495,9 +531,8 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
     <h2 class="reveal">名刺の温度が残っているのは、会期後2週間。<br>次の出展を、「名刺の束」で終わらせないために。</h2>
     <p class="c-sub reveal">フォロー体制は、会期が始まってからでは間に合いません。出展前の設計から入るほど、名刺の質もアポ率も上がります。まずは無料相談で、貴社の出展計画に合わせた見立てをご確認ください。<br><small style="color:rgba(247,249,252,.55)">※出展済み・フォロー未着手の名刺のみのご依頼も承ります。</small></p>
     <div class="fv-cta reveal">
-      <!-- TODO: 下記2つのhrefを実際の問い合わせフォームURL・資料DL先に差し替えてください -->
-      <a class="btn btn-primary" href="mailto:info@example.com?subject=%E5%B1%95%E7%A4%BA%E4%BC%9A%E3%83%8F%E3%83%83%E3%82%AF%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87%E5%B8%8C%E6%9C%9B">無料オンライン相談を予約する<span class="arrow">→</span></a>
-      <a class="btn btn-ghost" href="mailto:info@example.com?subject=%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%B3%87%E6%96%99%E5%B8%8C%E6%9C%9B">サービス資料をダウンロード</a>
+      
+      <a class="btn btn-primary" href="mailto:kanri@mycoach-myteam.com?subject=%E3%80%90%E5%B1%95%E7%A4%BA%E4%BC%9A%E3%83%8F%E3%83%83%E3%82%AF%E3%80%91%E7%84%A1%E6%96%99%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E7%9B%B8%E8%AB%87%E5%B8%8C%E6%9C%9B&body=%E4%BB%A5%E4%B8%8B%E3%81%AB%E3%81%94%E8%A8%98%E5%85%A5%E3%81%AE%E3%81%86%E3%81%88%E3%80%81%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E9%80%81%E4%BF%A1%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%0A%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%3A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%3A%0A%E3%81%8A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%28%E4%BB%BB%E6%84%8F%29%3A%0A%E6%A4%9C%E8%A8%8E%E4%B8%AD%E3%83%BB%E5%87%BA%E5%B1%95%E4%BA%88%E5%AE%9A%E3%81%AE%E5%B1%95%E7%A4%BA%E4%BC%9A%3A%0A%E5%90%8D%E5%88%BA%E3%81%AE%E6%A6%82%E7%AE%97%E6%9E%9A%E6%95%B0%28%E3%81%99%E3%81%A7%E3%81%AB%E3%81%8A%E6%8C%81%E3%81%A1%E3%81%AE%E5%A0%B4%E5%90%88%29%3A%0A%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%3A%0A">無料オンライン相談を予約する<span class="arrow">→</span></a>
     </div>
     <div class="micro reveal">
       <span>相談は30分・オンライン完結</span>
@@ -508,19 +543,88 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
 </section>
 </main>
 
+<!-- ============ LEGAL ============ -->
+<section id="legal" style="padding:64px 0;background:#0d1a2e;color:var(--white)">
+  <div class="wrap">
+    <div class="faq-list" style="margin-top:0">
+
+      <details id="company" style="background:transparent;border-color:var(--line-dark)">
+        <summary style="color:#F7F9FC">運営者情報</summary>
+        <div class="faq-a" style="color:rgba(247,249,252,.78)">
+          <table style="width:100%;border-collapse:collapse;font-size:13.5px">
+            <tr><td style="padding:8px 12px 8px 0;width:160px;color:rgba(247,249,252,.55);vertical-align:top">サービス名</td><td style="padding:8px 0">展示会ハック(TENJI-HACK)</td></tr>
+            <tr><td style="padding:8px 12px 8px 0;color:rgba(247,249,252,.55);vertical-align:top">運営者</td><td style="padding:8px 0">RELIGHT(屋号)【要確認:正式な事業者名称に差し替え】</td></tr>
+            <tr><td style="padding:8px 12px 8px 0;color:rgba(247,249,252,.55);vertical-align:top">代表</td><td style="padding:8px 0">茂住 雄太</td></tr>
+            <tr><td style="padding:8px 12px 8px 0;color:rgba(247,249,252,.55);vertical-align:top">所在地</td><td style="padding:8px 0">東京都中野区【要記入:番地まで】</td></tr>
+            <tr><td style="padding:8px 12px 8px 0;color:rgba(247,249,252,.55);vertical-align:top">事業内容</td><td style="padding:8px 0">トヨタ生産方式を基盤とする業務改善コンサルティング・PMO事業・営業支援事業</td></tr>
+            <tr><td style="padding:8px 12px 8px 0;color:rgba(247,249,252,.55);vertical-align:top">お問い合わせ</td><td style="padding:8px 0">kanri@mycoach-myteam.com</td></tr>
+          </table>
+          <p style="margin-top:14px;font-size:12.5px;color:rgba(247,249,252,.55)">※「RELIGHT」はブランド名(屋号)です。株式会社等の法人格を示すものではありません。</p>
+        </div>
+      </details>
+
+      <details id="tokushoho" style="background:transparent;border-color:var(--line-dark)">
+        <summary style="color:#F7F9FC">特定商取引法に基づく表記</summary>
+        <div class="faq-a" style="color:rgba(247,249,252,.78)">
+          <table style="width:100%;border-collapse:collapse;font-size:13.5px">
+            <tr><td style="padding:8px 12px 8px 0;width:160px;color:rgba(247,249,252,.55);vertical-align:top">事業者</td><td style="padding:8px 0">RELIGHT【要確認:正式な事業者名称】</td></tr>
+            <tr><td style="padding:8px 12px 8px 0;color:rgba(247,249,252,.55);vertical-align:top">運営責任者</td><td style="padding:8px 0">茂住 雄太</td></tr>
+            <tr><td style="padding:8px 12px 8px 0;color:rgba(247,249,252,.55);vertical-align:top">所在地</td><td style="padding:8px 0">【要記入:番地まで。請求があった場合に遅滞なく開示する旨の記載も可】</td></tr>
+            <tr><td style="padding:8px 12px 8px 0;color:rgba(247,249,252,.55);vertical-align:top">連絡先</td><td style="padding:8px 0">メール: kanri@mycoach-myteam.com【要記入:電話番号】</td></tr>
+            <tr><td style="padding:8px 12px 8px 0;color:rgba(247,249,252,.55);vertical-align:top">販売価格</td><td style="padding:8px 0">初期サービス設計費 250,000円(2回目以降100,000円〜)/名刺データ化 1枚100円/有効商談アポ獲得 1件15,000円〜/営業ツール制作 100,000円〜150,000円(いずれも税抜。詳細は本ページ料金欄およびお見積書に記載)</td></tr>
+            <tr><td style="padding:8px 12px 8px 0;color:rgba(247,249,252,.55);vertical-align:top">商品代金以外の必要料金</td><td style="padding:8px 0">消費税/銀行振込手数料/遠方の展示会に係る交通費・宿泊費等の実費(事前見積のうえ合意した場合のみ)</td></tr>
+            <tr><td style="padding:8px 12px 8px 0;color:rgba(247,249,252,.55);vertical-align:top">支払方法・支払時期</td><td style="padding:8px 0">銀行振込による2段階のお支払い。①初期サービス設計費:契約締結後、着手金として前払い(ご入金確認後に営業設計へ着手)。②成果報酬(名刺データ化・有効商談アポ獲得):フォロー架電期間の終了後、活動メモ・獲得名刺一覧・有効アポ一覧を記載した成果報告書とあわせてご請求し、請求書発行日の翌月末までにお支払い</td></tr>
+            <tr><td style="padding:8px 12px 8px 0;color:rgba(247,249,252,.55);vertical-align:top">役務の提供時期</td><td style="padding:8px 0">契約締結後、個別に合意したスケジュールに基づき提供</td></tr>
+            <tr><td style="padding:8px 12px 8px 0;color:rgba(247,249,252,.55);vertical-align:top">キャンセル・返金</td><td style="padding:8px 0">役務の性質上、着手後の初期サービス設計費の返金には応じられません。着手前のキャンセルは費用をいただきません。成果報酬は成果発生分のみのご請求です</td></tr>
+          </table>
+        </div>
+      </details>
+
+      <details id="privacy" style="background:transparent;border-color:var(--line-dark)">
+        <summary style="color:#F7F9FC">プライバシーポリシー</summary>
+        <div class="faq-a" style="color:rgba(247,249,252,.78);font-size:13.5px;line-height:2">
+          <p>RELIGHT(以下「当方」)は、本サービス「展示会ハック(TENJI-HACK)」の提供にあたり、個人情報の保護に関する法律(個人情報保護法)その他関係法令を遵守し、個人情報を以下のとおり取り扱います。</p>
+          <p style="margin-top:12px"><strong>1. 取得する情報</strong><br>(1) お問い合わせ・無料相談を通じてご提供いただく情報(会社名、氏名、メールアドレス、電話番号等)<br>(2) クライアント企業から業務委託に伴いお預かりする名刺情報等(氏名、会社名、役職、連絡先等)</p>
+          <p style="margin-top:12px"><strong>2. 利用目的</strong><br>(1) の情報は、お問い合わせへの回答、サービスのご案内、契約の履行のために利用します。(2) の情報は、委託元クライアントとの契約に基づく営業代行業務(データ化、選別、フォロー架電、商談日程の調整、報告)の遂行のためにのみ利用し、目的外の利用は行いません。</p>
+          <p style="margin-top:12px"><strong>3. お預かりする名刺情報の取扱い</strong><br>クライアントからお預かりする名刺情報は、個人情報保護法上の委託として取り扱い、秘密保持契約を締結のうえ、アクセス制限等の安全管理措置を講じます。業務完了後は、クライアントの指示に従い返却または削除し、当方での二次利用は一切行いません。</p>
+          <p style="margin-top:12px"><strong>4. 第三者提供</strong><br>法令に基づく場合を除き、ご本人の同意なく個人情報を第三者に提供しません。業務の一部を委託する場合は、委託先に対し必要かつ適切な監督を行います。</p>
+          <p style="margin-top:12px"><strong>5. 開示・訂正・利用停止等</strong><br>ご本人からの保有個人データの開示、訂正、利用停止等のご請求には、ご本人確認のうえ、法令に従い速やかに対応します。お預かりした名刺情報に関するご請求については、委託元クライアントと連携して対応します。</p>
+          <p style="margin-top:12px"><strong>6. お問い合わせ窓口</strong><br>個人情報の取扱いに関するお問い合わせ: kanri@mycoach-myteam.com</p>
+          <p style="margin-top:12px"><strong>7. 改定</strong><br>本ポリシーの内容は、法令の改正やサービス内容の変更に応じて改定することがあります。改定後の内容は本ページに掲載した時点で効力を生じます。</p>
+          <p style="margin-top:12px">制定日: 2026年8月【要確認:公開日に合わせ更新】</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <a class="btn btn-primary" href="mailto:kanri@mycoach-myteam.com?subject=%E3%80%90%E5%B1%95%E7%A4%BA%E4%BC%9A%E3%83%8F%E3%83%83%E3%82%AF%E3%80%91%E7%84%A1%E6%96%99%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E7%9B%B8%E8%AB%87%E5%B8%8C%E6%9C%9B&body=%E4%BB%A5%E4%B8%8B%E3%81%AB%E3%81%94%E8%A8%98%E5%85%A5%E3%81%AE%E3%81%86%E3%81%88%E3%80%81%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E9%80%81%E4%BF%A1%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%0A%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%3A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%3A%0A%E3%81%8A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%28%E4%BB%BB%E6%84%8F%29%3A%0A%E6%A4%9C%E8%A8%8E%E4%B8%AD%E3%83%BB%E5%87%BA%E5%B1%95%E4%BA%88%E5%AE%9A%E3%81%AE%E5%B1%95%E7%A4%BA%E4%BC%9A%3A%0A%E5%90%8D%E5%88%BA%E3%81%AE%E6%A6%82%E7%AE%97%E6%9E%9A%E6%95%B0%28%E3%81%99%E3%81%A7%E3%81%AB%E3%81%8A%E6%8C%81%E3%81%A1%E3%81%AE%E5%A0%B4%E5%90%88%29%3A%0A%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%3A%0A">無料オンライン相談(メールで30秒)<span class="arrow">→</span></a>
+</div>
+
 <footer>
   <div class="wrap foot-inner">
-    <div>© 2026 RELIGHT inc.|展示会ハック TENJI-HACK</div>
+    <div>© 2026 RELIGHT|展示会ハック TENJI-HACK</div>
     <div class="foot-links">
-      <!-- TODO: RELIGHTサイトの該当ページURLに差し替え -->
-      <a href="#">運営会社</a>
-      <a href="#">特定商取引法に基づく表記</a>
-      <a href="#">プライバシーポリシー</a>
+      <a href="#company">運営者情報</a>
+      <a href="#tokushoho">特定商取引法に基づく表記</a>
+      <a href="#privacy">プライバシーポリシー</a>
     </div>
   </div>
 </footer>
 
 <script>
+// sticky CTA bar (mobile)
+const bar=document.getElementById('stickyCta');
+const fvEl=document.querySelector('.fv');
+const contactEl=document.getElementById('contact');
+let pastFv=false, inContact=false;
+const update=()=>{const show=pastFv&&!inContact;bar.classList.toggle('visible',show);bar.setAttribute('aria-hidden',String(!show))};
+new IntersectionObserver(e=>{pastFv=!e[0].isIntersecting;update()},{threshold:0}).observe(fvEl);
+new IntersectionObserver(e=>{inContact=e[0].isIntersecting;update()},{threshold:.2}).observe(contactEl);
+
 // scroll reveal (respects prefers-reduced-motion via CSS)
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
