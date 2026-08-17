@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>展示会ハック TENJI-HACK|展示会営業・アポ獲得代行 | RELIGHT</title>
-<meta name="description" content="展示会で集めた名刺、商談に変わっていますか。貴社にお願いするのは名刺と営業ツールの提供だけ。トヨタ生産方式を基盤に、営業設計からフォロー架電・商談アポ獲得まで一気通貫で代行します。設計費25万円・名刺データ化100円/枚・商談アポ1件15,000円〜。">
-<meta property="og:title" content="展示会ハック TENJI-HACK|展示会営業・アポ獲得代行">
-<meta property="og:description" content="展示会で集めた名刺を商談に変える。トヨタ式の標準工程で、フォロー架電から商談アポ獲得まで一気通貫代行。月額固定費なし・成果報酬中心。">
+<meta name="description" content="展示会に出展する企業向けの営業代行。当社の営業チームが会場で決裁層と接点をつくり、会期後のフォロー架電から商談アポ獲得まで一気通貫で代行します。トヨタ生産方式を基盤に品質を標準化。設計費25万円・名刺データ化100円/枚・商談アポ1件18,000円〜。">
+<meta property="og:title" content="展示会ハック TENJI-HACK|展示会に出展する企業向け 営業・アポ獲得代行">
+<meta property="og:description" content="出展はしても営業リソースが足りない企業へ。会場での接点づくりから会期後の商談アポ獲得まで、トヨタ式の標準工程で一気通貫代行。月額固定費なし・成果報酬中心。">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,6 +112,34 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,
 .who.us{background:var(--blue);color:#fff}
 .who.you{background:var(--yellow);color:var(--navy)}
 .ours-band{margin-top:26px;border-top:2px solid var(--blue);padding-top:10px;font-size:13px;color:var(--blue);font-weight:700;letter-spacing:.06em;text-align:center}
+/* model cases */
+.case-grid{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.case-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;box-shadow:0 4px 18px rgba(10,22,40,.05);display:flex;flex-direction:column}
+.case-card .c-badge{display:inline-block;align-self:flex-start;font-size:12px;font-weight:900;letter-spacing:.04em;color:var(--blue);background:var(--blue-soft);border-radius:5px;padding:4px 12px;margin-bottom:16px}
+.case-card h3{font-size:17px;font-weight:700;line-height:1.55;margin-bottom:14px}
+.case-block{margin-top:2px}
+.case-block .lbl{font-size:11.5px;font-weight:900;letter-spacing:.08em;color:rgba(30,42,58,.45);margin-bottom:4px}
+.case-block p{font-size:13.5px;color:rgba(30,42,58,.82);line-height:1.75;margin-bottom:14px}
+.case-arrow{color:var(--blue);font-weight:900;margin:2px 0 12px;font-size:15px}
+@media(max-width:900px){.case-grid{grid-template-columns:1fr}}
+/* founder credibility */
+.founder{margin-top:64px;background:var(--navy);border-radius:var(--radius);padding:44px 40px;color:#fff}
+.founder .f-eyebrow{font-size:12px;font-weight:900;letter-spacing:.16em;color:var(--yellow);margin-bottom:14px}
+.founder h3{font-size:clamp(19px,2.6vw,23px);font-weight:900;line-height:1.6;margin-bottom:20px}
+.founder .f-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.founder .f-fact{border-top:2px solid rgba(217,169,59,.6);padding-top:14px}
+.founder .f-fact .n{font-size:15px;font-weight:900;color:#fff;line-height:1.5;margin-bottom:6px}
+.founder .f-fact p{font-size:12.5px;color:rgba(247,249,252,.65);line-height:1.7}
+.founder .f-note{margin-top:24px;font-size:12.5px;color:rgba(247,249,252,.55);line-height:1.8}
+@media(max-width:760px){.founder{padding:32px 24px}.founder .f-facts{grid-template-columns:1fr}}
+.cat-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cat-card{background:rgba(247,249,252,.05);border:1px solid var(--line-dark);border-radius:var(--radius);padding:24px 22px}
+.cat-card .c-tag{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.06em;color:var(--navy);background:var(--yellow);border-radius:4px;padding:2px 9px;margin-bottom:12px}
+.cat-card h3{font-size:16.5px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.5}
+.cat-card p{font-size:12.5px;color:rgba(247,249,252,.62);line-height:1.75}
+.cat-card p .ex{color:rgba(247,249,252,.82)}
+@media(max-width:900px){.cat-grid{grid-template-columns:1fr}}
+.sched-note{margin-top:44px;background:rgba(37,99,235,.10);border:1px solid rgba(37,99,235,.4);border-radius:var(--radius);padding:24px 28px;font-size:14.5px;color:rgba(247,249,252,.82);line-height:2}
 .proc-note{margin-top:44px;font-size:14px;color:rgba(247,249,252,.62);border-left:3px solid var(--blue);padding-left:16px;max-width:720px}
 @media(max-width:900px){.pipeline{grid-template-columns:1fr}}
 
@@ -134,6 +162,17 @@ table.compare{width:100%;min-width:720px;border-collapse:separate;border-spacing
 .compare td.hero-col{background:var(--blue-soft);font-weight:700;border-left:1px solid var(--blue);border-right:1px solid var(--blue)}
 .compare tr:last-child td.hero-col{border-bottom:1px solid var(--blue)}
 .table-note{font-size:12.5px;color:rgba(30,42,58,.6);margin-top:16px}
+.compare .ico{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;font-size:13px;font-weight:900;margin-right:8px;vertical-align:-5px;flex:none}
+.compare .ico.good{background:var(--blue);color:#fff}
+.compare .ico.mid{background:rgba(30,42,58,.12);color:rgba(30,42,58,.6)}
+.compare .ico.bad{background:transparent;border:1.5px solid rgba(30,42,58,.22);color:rgba(30,42,58,.4)}
+.compare td.hero-col .ico.good{background:var(--yellow);color:var(--navy)}
+.compare .cell{display:flex;align-items:flex-start;gap:0;font-size:13.5px;line-height:1.5}
+.compare .cell .txt{padding-top:1px}
+.compare thead th{font-size:14px;padding:18px 16px}
+.compare thead th.hero-col{font-size:15px}
+.compare td{padding:14px 16px}
+.compare td:first-child{font-size:13.5px;line-height:1.4}
 
 /* ---------- pricing ---------- */
 .price-rows{max-width:760px;margin:56px auto 0}
@@ -240,6 +279,7 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
       <a href="#process">仕組み</a>
       <a href="#reasons">選ばれる理由</a>
       <a href="#pricing">料金</a>
+      <a href="#schedule">展示会スケジュール</a>
       <a href="#faq">FAQ</a>
       <a class="nav-cta" href="mailto:kanri@mycoach-myteam.com?subject=%E3%80%90%E5%B1%95%E7%A4%BA%E4%BC%9A%E3%83%8F%E3%83%83%E3%82%AF%E3%80%91%E7%84%A1%E6%96%99%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E7%9B%B8%E8%AB%87%E5%B8%8C%E6%9C%9B&body=%E4%BB%A5%E4%B8%8B%E3%81%AB%E3%81%94%E8%A8%98%E5%85%A5%E3%81%AE%E3%81%86%E3%81%88%E3%80%81%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E9%80%81%E4%BF%A1%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%0A%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%3A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%3A%0A%E3%81%8A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%28%E4%BB%BB%E6%84%8F%29%3A%0A%E6%A4%9C%E8%A8%8E%E4%B8%AD%E3%83%BB%E5%87%BA%E5%B1%95%E4%BA%88%E5%AE%9A%E3%81%AE%E5%B1%95%E7%A4%BA%E4%BC%9A%3A%0A%E5%90%8D%E5%88%BA%E3%81%AE%E6%A6%82%E7%AE%97%E6%9E%9A%E6%95%B0%28%E3%81%99%E3%81%A7%E3%81%AB%E3%81%8A%E6%8C%81%E3%81%A1%E3%81%AE%E5%A0%B4%E5%90%88%29%3A%0A%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%3A%0A">無料相談</a>
     </nav>
@@ -251,9 +291,9 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
 <div class="fv">
   <div class="wrap fv-grid">
     <div>
-      <span class="fv-label">展示会出展企業向け|展示会営業・アポ獲得代行</span>
-      <h1>展示会で集めた<br>その名刺、<br><span class="hl">商談</span>に変わっていますか。</h1>
-      <p class="fv-sub">出展の成果は、会期後の2週間で決まります。貴社にお願いするのは、名刺と営業ツールのご提供だけ。営業設計からフォロー架電、商談アポの獲得まで、当社が一気通貫で代行します。</p>
+      <span class="fv-label">展示会に出展する企業向け|現地営業・アポ獲得代行</span>
+      <h1>その展示会、<br>本気で<span class="hl">商談</span>を<br>取りに行きますか。</h1>
+      <p class="fv-sub">出展はしても、営業のリソースが足りない。そんな貴社に代わって、当社の営業チームが会場で決裁層と接点をつくり、会期後のフォロー架電から商談アポの獲得まで一気通貫で代行します。貴社にお願いするのは、名刺と営業ツールのご提供だけ。</p>
       <div class="fv-cta">
         <a class="btn btn-primary" href="mailto:kanri@mycoach-myteam.com?subject=%E3%80%90%E5%B1%95%E7%A4%BA%E4%BC%9A%E3%83%8F%E3%83%83%E3%82%AF%E3%80%91%E7%84%A1%E6%96%99%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E7%9B%B8%E8%AB%87%E5%B8%8C%E6%9C%9B&body=%E4%BB%A5%E4%B8%8B%E3%81%AB%E3%81%94%E8%A8%98%E5%85%A5%E3%81%AE%E3%81%86%E3%81%88%E3%80%81%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E9%80%81%E4%BF%A1%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%0A%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%3A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%3A%0A%E3%81%8A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%28%E4%BB%BB%E6%84%8F%29%3A%0A%E6%A4%9C%E8%A8%8E%E4%B8%AD%E3%83%BB%E5%87%BA%E5%B1%95%E4%BA%88%E5%AE%9A%E3%81%AE%E5%B1%95%E7%A4%BA%E4%BC%9A%3A%0A%E5%90%8D%E5%88%BA%E3%81%AE%E6%A6%82%E7%AE%97%E6%9E%9A%E6%95%B0%28%E3%81%99%E3%81%A7%E3%81%AB%E3%81%8A%E6%8C%81%E3%81%A1%E3%81%AE%E5%A0%B4%E5%90%88%29%3A%0A%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%3A%0A">まずは無料オンライン相談<span class="arrow">→</span></a>
       </div>
@@ -280,26 +320,26 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
 <section id="pain">
   <div class="wrap">
     <span class="eyebrow reveal">PROBLEM</span>
-    <h2 class="reveal">出展は、名刺を集めて終わりではありません。<br>なのに多くの企業で、そこで終わっています。</h2>
-    <p class="sec-lead reveal">小間料、装飾、当日の人件費。数百万円を投じた出展の成果物が「名刺の束」のまま眠っている——B2B展示会で最も多い失敗は、出展そのものではなく、会期後に起きています。</p>
+    <h2 class="reveal">出展したのに、成果が出ない。<br>その原因は、会場と会期後の「営業力」にあります。</h2>
+    <p class="sec-lead reveal">小間料、装飾、当日の人件費。数百万円を投じても、ブースに立つ人手が足りず、集めた名刺も活かしきれない——B2B展示会で成果が出ない原因の多くは、出展の判断ではなく「現地とその後の営業実行」にあります。</p>
     <div class="card-grid">
       <div class="pain-card reveal">
         <span class="p-num num">01</span>
-        <h3>フォローが追いつかない</h3>
-        <p>会期が終われば、営業は通常業務に戻ります。数百枚の名刺を前に「落ち着いたら連絡しよう」——その"落ち着いたら"は、来ないまま次の展示会がやって来ます。</p>
+        <h3>会場に立つ人手が足りない</h3>
+        <p>限られた自社スタッフでは、通路を歩く来場者に十分に声をかけきれません。決裁層が目の前を通り過ぎても、接点をつくれないまま会期が終わります。</p>
       </div>
       <div class="pain-card reveal">
         <span class="p-num num">02</span>
         <h3>名刺の温度は2週間で冷める</h3>
-        <p>来場者は貴社のブースだけでなく、何十社と名刺交換をしています。記憶が残っているのは会期後わずか1〜2週間。ここを逃した名刺は、ただのコールドリストです。</p>
+        <p>来場者は貴社のブースだけでなく、何十社と名刺交換をしています。記憶が残っているのは会期後わずか1〜2週間。会期後すぐ動けなければ、集めた名刺はただのコールドリストになります。</p>
       </div>
       <div class="pain-card reveal">
         <span class="p-num num">03</span>
-        <h3>フォローの質がバラバラ</h3>
-        <p>誰が・いつ・何を話して・どう温度感を残したか。属人的なフォローでは追客の質が揃わず、本来アポに変わるはずだった見込み客を取りこぼします。</p>
+        <h3>営業の質が人によってバラバラ</h3>
+        <p>誰が・いつ・何を話して・どう温度感を残したか。現地の声かけも会期後の追客も属人的では品質が揃わず、本来アポに変わるはずだった見込み客を取りこぼします。</p>
       </div>
     </div>
-    <p class="bridge reveal">足りないのは、営業の気合いではありません。<br>会期後を<span class="mark">「工程」として設計する仕組み</span>です。</p>
+    <p class="bridge reveal">足りないのは、営業の気合いではありません。<br>会場と会期後を<span class="mark">「工程」として設計する仕組み</span>です。</p>
   </div>
 </section>
 
@@ -387,29 +427,34 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
 <section id="compare" style="padding-top:0">
   <div class="wrap">
     <span class="eyebrow reveal">COMPARISON</span>
-    <h2 class="reveal">「自社でフォロー」でも「テレアポ代行」でもない、<br>第三の選択肢。</h2>
+    <h2 class="reveal">「結局いくらかかるのか」が、<br>最初からわかる。</h2>
+    <p class="sec-lead reveal">一般的な展示会営業代行は、初期費用・当日の日当・人数・交通費・月額運営費などが積み上がり、総額が見えにくいのが実情です。TENJI-HACKは「設計費+成果報酬」を基本に、追加費用は事前見積で明示。成果が出なければ成果報酬は発生しません。</p>
     <div class="table-scroll reveal">
       <table class="compare">
         <thead>
           <tr>
             <th></th>
-            <th>自社でフォロー</th>
-            <th>一般的なテレアポ代行</th>
-            <th class="hero-col">展示会ハック</th>
+            <th>自社で運営</th>
+            <th>一般的な<br>展示会営業代行</th>
+            <th class="hero-col">TENJI-HACK</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>初期コスト</td><td>0円(ただし工数負担大)</td><td>初期+月額固定が主流</td><td class="hero-col">設計費25万円のみ(2回目以降10万円〜)</td></tr>
-          <tr><td>月額固定費</td><td>−</td><td>発生するのが一般的</td><td class="hero-col">なし</td></tr>
-          <tr><td>架電リストの質</td><td>名刺のまま放置されがち</td><td>購入リスト等・接点なし</td><td class="hero-col">接点済みの自社名刺を選別して活用</td></tr>
-          <tr><td>フォローの品質</td><td>担当者次第でバラつき</td><td>オペレーター次第</td><td class="hero-col">標準作業書で均質化</td></tr>
-          <tr><td>展示会の知見</td><td>−</td><td>汎用テレアポ</td><td class="hero-col">展示会リード専門の営業設計</td></tr>
-          <tr><td>貴社の工数</td><td>膨大</td><td>リスト・トーク監修</td><td class="hero-col">名刺とツールの提供のみ</td></tr>
+          <tr><td>料金体系のわかりやすさ</td><td><div class="cell"><span class="ico mid">△</span><span class="txt">自社人件費で見えにくい</span></div></td><td><div class="cell"><span class="ico bad">−</span><span class="txt">項目が多く総額が読みにくい</span></div></td><td class="hero-col"><div class="cell"><span class="ico good">✓</span><span class="txt">設計費+成果報酬のみ</span></div></td></tr>
+          <tr><td>初期費用</td><td><div class="cell"><span class="ico mid">△</span><span class="txt">0円(自社工数大)</span></div></td><td><div class="cell"><span class="ico bad">−</span><span class="txt">ブース代行+フォロー設計で高額</span></div></td><td class="hero-col"><div class="cell"><span class="ico good">✓</span><span class="txt">設計費25万円のみ</span></div></td></tr>
+          <tr><td>当日の日当・人件費</td><td><div class="cell"><span class="ico bad">−</span><span class="txt">自社スタッフを拘束</span></div></td><td><div class="cell"><span class="ico bad">−</span><span class="txt">日当×人数が別途発生</span></div></td><td class="hero-col"><div class="cell"><span class="ico good">✓</span><span class="txt">必要な場合のみ・見積明示</span></div></td></tr>
+          <tr><td>交通費・宿泊費</td><td><div class="cell"><span class="ico mid">△</span><span class="txt">自社負担</span></div></td><td><div class="cell"><span class="ico bad">−</span><span class="txt">実費が別途上乗せ</span></div></td><td class="hero-col"><div class="cell"><span class="ico good">✓</span><span class="txt">事前見積・合意分のみ</span></div></td></tr>
+          <tr><td>月額固定費</td><td><div class="cell"><span class="ico mid">△</span><span class="txt">なし</span></div></td><td><div class="cell"><span class="ico bad">−</span><span class="txt">月額運営費がかかりがち</span></div></td><td class="hero-col"><div class="cell"><span class="ico good">✓</span><span class="txt">なし</span></div></td></tr>
+          <tr><td>成果が出ない時の費用</td><td><div class="cell"><span class="ico mid">△</span><span class="txt">人件費は発生</span></div></td><td><div class="cell"><span class="ico bad">−</span><span class="txt">固定費は返らない</span></div></td><td class="hero-col"><div class="cell"><span class="ico good">✓</span><span class="txt">成果報酬分は発生しない</span></div></td></tr>
+          <tr><td>アポの品質基準</td><td><div class="cell"><span class="ico bad">−</span><span class="txt">担当者次第</span></div></td><td><div class="cell"><span class="ico mid">△</span><span class="txt">件数カウント中心</span></div></td><td class="hero-col"><div class="cell"><span class="ico good">✓</span><span class="txt">役職者同席を要件化</span></div></td></tr>
+          <tr><td>品質の保証方法</td><td><div class="cell"><span class="ico bad">−</span><span class="txt">属人</span></div></td><td><div class="cell"><span class="ico mid">△</span><span class="txt">スタッフの経験値</span></div></td><td class="hero-col"><div class="cell"><span class="ico good">✓</span><span class="txt">トヨタ式の標準作業書</span></div></td></tr>
+          <tr><td>導入後に残る資産</td><td><div class="cell"><span class="ico bad">−</span><span class="txt">なし</span></div></td><td><div class="cell"><span class="ico bad">−</span><span class="txt">残らない</span></div></td><td class="hero-col"><div class="cell"><span class="ico good">✓</span><span class="txt">標準作業書が自社に残る</span></div></td></tr>
         </tbody>
       </table>
     </div>
+    <p style="margin-top:14px;font-size:12.5px;color:rgba(30,42,58,.6)"><span class="ico good" style="width:18px;height:18px;font-size:11px;vertical-align:-4px">✓</span> 強み・優位&nbsp;&nbsp;<span class="ico mid" style="width:18px;height:18px;font-size:11px;vertical-align:-4px">△</span> 条件つき&nbsp;&nbsp;<span class="ico bad" style="width:18px;height:18px;font-size:11px;vertical-align:-4px">−</span> 弱み・非対応</p>
     <p class="scroll-hint">← 表は横にスクロールできます →</p>
-    <p class="table-note">※比較は一般的な相場・傾向に基づくものです。各手法にも有効な場面があります。当社は「展示会名刺の商談化」において最適な選択肢であることをお約束します。</p>
+    <p class="table-note">※比較は一般的な相場・傾向に基づくものであり、特定の他社サービスを指すものではありません。各社・各手法にもそれぞれ有効な場面があります。当社は「明瞭な料金体系」「月額固定なし」「トヨタ式による品質の標準化」を強みとしています。現地稼働を伴う場合の稼働費・交通費は、着手前に見積書で必ず提示します。</p>
   </div>
 </section>
 
@@ -487,6 +532,40 @@ footer{background:#060d18;color:rgba(247,249,252,.6);padding:44px 0;font-size:13
       </div>
     </div>
     <p class="flow-time reveal">展示会終了から初回アポ連携まで:最短2週間</p>
+  </div>
+</section>
+
+<!-- ============ SCHEDULE ============ -->
+<section id="schedule" class="sec-dark">
+  <div class="wrap">
+    <span class="eyebrow reveal">SCHEDULE</span>
+    <h2 class="reveal">次に狙うべき展示会は、いつ開催されるか。</h2>
+    <p class="proc-intro reveal">出展フォローの成果は、会期の逆算から始まります。営業設計には準備期間が必要なため、狙う展示会の会期を早めに把握しておくことが重要です。最新の全国展示会スケジュールは、展示会・見本市の専門メディア「イベスル」で常時確認できます。</p>
+
+    <h3 style="margin-top:64px;font-size:clamp(19px,2.6vw,24px);font-weight:900;color:#fff" class="reveal">TENJI-HACKが営業支援できる展示会</h3>
+    <p class="proc-intro reveal" style="margin-top:14px">B2B商材を扱う幅広い業種の展示会に対応します。下記は代表的なカテゴリと展示会の例です(特定の主催者・展示会との提携関係を示すものではありません)。</p>
+    <div class="cat-grid">
+      <div class="cat-card reveal"><span class="c-tag">得意領域</span><h3>美容・健康・ビューティー</h3><p>サロン向け機器、化粧品、健康食品など。<span class="ex">例:ビューティーワールド ジャパン、Diet & Beauty Fair、健康博覧会</span></p></div>
+      <div class="cat-card reveal"><span class="c-tag">得意領域</span><h3>製造・ものづくり</h3><p>部品、加工技術、生産設備、FAなど。トヨタ生産方式を基盤とする当社が最も知見を持つ領域。<span class="ex">例:ものづくりワールド、機械要素技術展、INDUSTRY-FRONTIER</span></p></div>
+      <div class="cat-card reveal"><h3>IT・SaaS・DX</h3><p>業務システム、クラウド、AI、セキュリティなど。<span class="ex">例:Japan IT Week、DX EXPO、AI・人工知能EXPO</span></p></div>
+      <div class="cat-card reveal"><h3>医療・介護・ヘルスケア</h3><p>医療機器、介護用品、福祉サービスなど。<span class="ex">例:CareTEX、メディカルジャパン、H.C.R.</span></p></div>
+      <div class="cat-card reveal"><h3>食品・飲料・外食</h3><p>食材、加工食品、厨房機器、外食向けサービスなど。<span class="ex">例:FOODEX JAPAN、外食ビジネスウィーク、スーパーマーケット・トレードショー</span></p></div>
+      <div class="cat-card reveal"><h3>建築・建材・住宅設備</h3><p>建材、住宅設備、施工技術、不動産テックなど。<span class="ex">例:JAPAN BUILD、建築・建材展、住宅設備関連展</span></p></div>
+      <div class="cat-card reveal"><h3>販促・マーケティング・EC</h3><p>販促ツール、店舗運営、EC支援、広告など。<span class="ex">例:販促EXPO、JapanマーケティングWeek、店舗ソリューション展</span></p></div>
+      <div class="cat-card reveal"><h3>環境・エネルギー</h3><p>省エネ設備、再生可能エネルギー、脱炭素関連など。<span class="ex">例:スマートエネルギーWeek、脱炭素経営EXPO</span></p></div>
+      <div class="cat-card reveal"><h3>その他 B2B全般</h3><p>物流、人事・HR、バックオフィス、教育など、決裁層が集まるB2B展示会全般。まずはご相談ください。</p></div>
+    </div>
+
+    <div style="margin-top:40px;display:flex;flex-wrap:wrap;gap:16px" class="reveal">
+      <a class="btn btn-primary" href="https://s.evesul.jp/tradeshow_schedule" target="_blank" rel="noopener noreferrer">全国の展示会スケジュールを確認する(イベスル)<span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="https://s.evesul.jp/event_tokyo_bigsight" target="_blank" rel="noopener noreferrer">東京ビッグサイトの展示会一覧</a>
+    </div>
+    <p style="margin-top:18px;font-size:12.5px;color:rgba(247,249,252,.5)" class="reveal">※展示会スケジュールは外部サイト「イベスル(evesul.jp)」の情報です。会期・会場等の最新・正確な情報は各展示会の公式サイトでご確認ください。</p>
+
+    <div class="sched-note reveal">
+      <strong style="color:#fff">貴社に最適な展示会が分からない場合も、ご相談ください。</strong><br>
+      無料相談では、貴社の商材・ターゲットに合う展示会の選定から、会期に間に合わせるための逆算スケジュールまで、具体的にご提案します。
+    </div>
   </div>
 </section>
 
