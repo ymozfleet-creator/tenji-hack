@@ -3,6 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* スマホは /sp/ のLPへ転送(?pc=1 でPC版を表示) */
+(function(){
+  try{
+    if(/[?&]pc=1(&|$)/.test(location.search)){sessionStorage.setItem('tenjihack_pc','1');return;}
+    if(sessionStorage.getItem('tenjihack_pc')==='1')return;
+  }catch(e){}
+  if(/iPhone|iPod|Android.+Mobile/.test(navigator.userAgent)){
+    location.replace('/sp/'+location.search+location.hash);
+  }
+})();
+</script>
 <title>展示会ハック（展示ハック）｜展示会の営業代行・アポ獲得 TENJI-HACK</title>
 <meta name="description" content="貴社の出展は不要。当社スタッフが会場を回り、出展企業とご挨拶・名刺交換。会期後のフォロー架電から商談アポ獲得まで一気通貫で代行します。トヨタ生産方式を基盤に品質を標準化。設計費25万円・有効名刺データ化500円/社・商談アポ1件18,000円〜。">
 <meta property="og:title" content="展示会ハック TENJI-HACK|展示会での営業代行・アポ獲得(BtoB企業向け)">
