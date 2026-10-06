@@ -125,6 +125,16 @@ strong{font-weight:700}
 .plan .t .pr s{font-size:13px;text-decoration:none;letter-spacing:0}
 .plan ul{margin:0;padding:15px 16px 17px 34px}
 .plan li{font-size:14.5px;line-height:1.75;margin-bottom:5px}
+.abtag{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--tape);color:#0A1522;font-size:15px;margin-right:9px;vertical-align:1px}
+.plan.ab .t{align-items:center}
+.plan.ab .abc{margin:12px 16px 2px;font-size:13.5px;color:var(--sub);line-height:1.6}
+.plan.ab .abr{display:grid;grid-template-columns:1fr auto;margin:6px 16px 0;padding:0}
+.plan.ab .abr dt,.plan.ab .abr dd{padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;margin:0}
+.plan.ab .abr dd{text-align:right;font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:19px;white-space:nowrap}
+.plan.ab .abr dd s{font-size:12px;text-decoration:none;font-weight:700;color:var(--sub);margin-left:2px}
+.plan.ab .abr dd.z{font-size:14px;color:var(--sub)}
+.plan.ab .abf{margin:14px 16px 0;font-size:12.5px;font-weight:900}
+.plan.ab ul.abl{padding-top:6px}
 .hitmark{display:inline-block;background:var(--tape);color:#0A1522;font-size:10.5px;font-weight:900;
   padding:3px 7px;margin-left:6px;font-family:"Zen Kaku Gothic New",sans-serif;vertical-align:2px;letter-spacing:.04em}
 
@@ -313,7 +323,26 @@ footer{padding:30px 0 40px;font-size:12.5px;color:var(--sub);line-height:1.95}
     <ul><li>1年契約／年12回</li><li>毎月どこかの展示会に立てる体制</li><li>代表が稼働に同行</li></ul>
   </div>
 
-  <p style="font-size:13.5px;color:var(--sub)">年間プランの成果報酬は2つからお選びいただけます。<b>A型(アポ型)</b>は有効名刺500円/社・商談1件15,000円。<b>B型(レベニューシェア型)</b>は名刺・商談の費用をいただかず、ご成約時に初回ご契約額の20〜30%のみ。型の選択は契約時に確定し、期間中の変更と中途解約は承っておりません。対象展示会の変更(会期1か月前まで)と稼働担当者の変更には対応します。お支払いは毎月末締め・翌月末までのお振込みです。</p>
+  <h3 style="font-size:17px;font-weight:900;margin:30px 0 4px;line-height:1.5">成果報酬は2つの型から選べます</h3>
+  <p class="lead" style="margin-bottom:14px">月額に加えてお支払いいただく成果報酬の形です。ご契約時にどちらか一方をお選びください。</p>
+
+  <div class="plan ab">
+    <div class="t"><span class="nm"><span class="abtag">A</span>アポ型</span></div>
+    <p class="abc">獲得した名刺・アポの数だけ、定額でお支払い</p>
+    <dl class="abr"><dt>有効名刺データ化</dt><dd>500<s>円/社</s></dd><dt>有効商談アポ</dt><dd>15,000<s>円/件</s></dd><dt>ご成約後の売上</dt><dd class="z">費用なし</dd></dl>
+    <p class="abf">こんな方におすすめ</p>
+    <ul class="abl"><li>毎月の費用を確定させ、予算を組みやすくしたい方</li><li>1件あたりの取引額が比較的小さい商材</li></ul>
+  </div>
+
+  <div class="plan ab">
+    <div class="t"><span class="nm"><span class="abtag">B</span>レベニューシェア型</span></div>
+    <p class="abc">ご成約まで、月額以外の費用はかかりません</p>
+    <dl class="abr"><dt>有効名刺データ化</dt><dd class="z">費用なし</dd><dt>有効商談アポ</dt><dd class="z">費用なし</dd><dt>ご成約後の売上</dt><dd>10%〜<s>(ご相談)</s></dd></dl>
+    <p class="abf">こんな方におすすめ</p>
+    <ul class="abl"><li>1件あたりの取引額が大きい商材</li><li>OEMなど継続的な取引が見込める商材</li><li>成果が出たときだけ費用を払いたい方</li></ul>
+  </div>
+
+  <p style="font-size:13px;color:var(--sub);line-height:1.8">※B型の料率と対象期間は、商材やお取引の形態(単発か継続か等)にあわせてご相談のうえ設計し、ご契約書に明記します。お見積りではA型・B型の両方の金額をお出しします。<br>※型の選択は契約時に確定し、期間中の変更と中途解約は承っておりません。対象展示会の変更(会期1か月前まで)と稼働担当者の変更には対応します。<br>※お支払いは毎月末締め・翌月末までのお振込みです。</p>
 </section>
 
 <section class="rv">
