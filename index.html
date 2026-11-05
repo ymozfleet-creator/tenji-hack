@@ -1328,5 +1328,466 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});upd();
 })();
 </script>
+<!-- ===== FX-LAYER v1 START =====
+  演出レイヤー(2026-11 追加)。キネティック・タイポグラフィ / インフォグラフィック / UIアニメーション。
+  ・元のデザインに戻す場合：この START 〜 END の範囲をまるごと削除するだけで、追加前の状態に戻ります。
+  ・URLに ?fx=0 を付けると、演出なし(元の表示)で確認できます。
+  ・文言・料金などの数値は一切変更していません(既存の表示内容をアニメーションさせているだけです)。
+-->
+<style id="fx-style">
+/* ---------- kinetic typography ---------- */
+html.fx .fx-w{display:inline-block;white-space:nowrap}
+html.fx .fx-ch{display:inline-block;will-change:transform,opacity}
+html.fx h1.fx-split .fx-ch{opacity:0;transform:translateY(.55em) rotate(4deg);filter:blur(8px);
+  animation:fxRise .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*38ms + 120ms)}
+@keyframes fxRise{to{opacity:1;transform:none;filter:blur(0)}}
+html.fx .fv h1.fx-split .hl{background-size:0% 100%;background-repeat:no-repeat;animation:fxMark .7s cubic-bezier(.6,0,.2,1) .95s forwards}
+@keyframes fxMark{to{background-size:100% 100%}}
+html.fx .fv h1.fx-split .hl .fx-ch{animation-name:fxRise,fxPunch;animation-duration:.9s,.5s;animation-delay:calc(var(--i)*38ms + 120ms),1.55s;animation-fill-mode:forwards,none}
+@keyframes fxPunch{0%{transform:none}40%{transform:translateY(-.08em) scale(1.06)}100%{transform:none}}
+
+html.fx h2.fx-split.reveal,html.fx .bridge.fx-split.reveal{opacity:1;transform:none}
+html.fx h2.fx-split .fx-ch,html.fx .bridge.fx-split .fx-ch{opacity:0;transform:translateY(.7em);clip-path:inset(0 0 100% 0)}
+html.fx h2.fx-split.show .fx-ch,html.fx .bridge.fx-split.show .fx-ch{animation:fxUp .6s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*16ms)}
+@keyframes fxUp{to{opacity:1;transform:none;clip-path:inset(-20% -10% -20% -10%)}}
+html.fx .mark.fx-mk{background-size:0% 100%;background-repeat:no-repeat;transition:background-size .8s cubic-bezier(.6,0,.2,1)}
+html.fx .show .mark.fx-mk,html.fx .mark.fx-mk.fx-on{background-size:100% 100%}
+html.fx .fv-sub strong{background-size:0% 100%;background-repeat:no-repeat;animation:fxMark .7s cubic-bezier(.6,0,.2,1) 1.5s forwards}
+
+/* FV entrance */
+html.fx .fv-label{animation:fxIn .6s cubic-bezier(.2,.8,.2,1) both}
+html.fx .fv-sub{animation:fxIn .7s cubic-bezier(.2,.8,.2,1) .7s both}
+html.fx .fv-points li{animation:fxIn .5s cubic-bezier(.2,.8,.2,1) both}
+html.fx .fv-points li:nth-child(1){animation-delay:.95s}
+html.fx .fv-points li:nth-child(2){animation-delay:1.08s}
+html.fx .fv-points li:nth-child(3){animation-delay:1.21s}
+html.fx .fv-points li::before{animation:fxPop .45s cubic-bezier(.3,1.6,.5,1) both;animation-delay:inherit}
+html.fx .fv-cta,html.fx .fv-micro{animation:fxIn .6s cubic-bezier(.2,.8,.2,1) 1.35s both}
+html.fx .fv-photo{animation:fxPhoto 1s cubic-bezier(.2,.8,.2,1) .4s both}
+@keyframes fxIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fxPop{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes fxPhoto{from{opacity:0;transform:translate(24px,24px);box-shadow:0 0 0 var(--blue)}to{opacity:1;transform:none;box-shadow:10px 10px 0 var(--blue)}}
+html.fx .fv-photo .ph img{transform:scale(1.08);transition:transform .2s linear;will-change:transform}
+
+/* ---------- UI / UX ---------- */
+html.fx .btn-primary{background-image:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.38) 48%,transparent 66%);background-size:260% 100%;background-position:160% 0;background-repeat:no-repeat}
+html.fx .btn-primary:hover,html.fx .btn-primary.fx-shine{background-image:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.38) 48%,transparent 66%);background-size:260% 100%;background-repeat:no-repeat;background-position:-60% 0;transition:background-position .9s ease,transform .15s ease,box-shadow .15s ease}
+html.fx .nav-links a.fx-active:not(.nav-cta)::after{transform:scaleX(1)}
+html.fx .nav-links a.fx-active:not(.nav-cta){color:var(--blue)}
+
+html.fx .plan-card{transition:transform .25s ease,box-shadow .25s ease;transform-style:preserve-3d;will-change:transform}
+html.fx .plan-card::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.14),transparent 45%)}
+html.fx .plan-card:hover::after{opacity:1}
+
+html.fx .pain-card .p-num,html.fx .step .s-num{display:inline-block;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+html.fx .pain-card:hover .p-num,html.fx .step:hover .s-num{transform:translateY(-4px) scale(1.12)}
+html.fx .uc-row{position:relative}
+html.fx .uc-row::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+html.fx .uc-row:hover::after{transform:scaleX(1)}
+
+/* reveal stagger in grids */
+html.fx .card-grid>.reveal:nth-child(2),html.fx .pipeline>.reveal:nth-child(3n+2),html.fx .cat-grid>.reveal:nth-child(3n+2){transition-delay:.12s}
+html.fx .card-grid>.reveal:nth-child(3),html.fx .pipeline>.reveal:nth-child(3n),html.fx .cat-grid>.reveal:nth-child(3n){transition-delay:.24s}
+
+/* FAQ */
+html.fx details summary{transition:background .2s}
+html.fx #faq details summary:hover{background:var(--blue-tint)}
+
+/* ---------- METHOD: インタラクティブ工程ステッパー ---------- */
+html.fx #process .iso-wide,html.fx #process .iso-wide+.scroll-hint,html.fx #process .pipeline{display:none}
+.fx-flow{margin:48px 0 0;border:2px solid var(--ink);background:#fff;box-shadow:8px 8px 0 var(--ink)}
+.fx-flow-top{padding:22px 28px 18px;border-bottom:2px solid var(--ink)}
+.fx-flow-t{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.fx-flow-t b{font-size:13px;font-weight:900;letter-spacing:.12em;color:var(--blue);font-family:'Inter','Noto Sans JP',sans-serif}
+.fx-flow-t span{font-size:12px;font-weight:700;color:var(--muted)}
+.fx-phases2{display:grid;grid-template-columns:2fr 1fr 3fr;gap:6px;margin-bottom:14px}
+.fx-phases2 span{font-size:12px;font-weight:900;text-align:center;padding:5px 4px;background:var(--paper-2);color:var(--muted);border-top:3px solid var(--rule);transition:all .35s}
+.fx-phases2 span.on{background:var(--ink);color:#fff;border-top-color:var(--yellow)}
+.fx-track{position:relative;display:grid;grid-template-columns:repeat(6,1fr)}
+.fx-track-line{position:absolute;left:calc(100%/12);right:calc(100%/12);top:22px;height:4px;background:var(--hair)}
+.fx-track-line i{position:absolute;inset:0;background:var(--blue);transform-origin:left;transform:scaleX(var(--p,0));transition:transform .7s cubic-bezier(.6,0,.2,1)}
+.fx-nd{appearance:none;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:7px;padding:0 4px;font:inherit;position:relative;z-index:1}
+.fx-nd .d{width:48px;height:48px;display:grid;place-items:center;background:#fff;border:2px solid var(--ink);font-family:var(--display);font-size:18px;color:var(--ink);transition:transform .35s cubic-bezier(.3,1.6,.5,1),background .3s,color .3s,box-shadow .3s}
+.fx-nd.done .d{background:var(--blue);border-color:var(--blue);color:#fff}
+.fx-nd.you.done .d{background:var(--yellow);border-color:var(--ink);color:var(--ink)}
+.fx-nd.on .d{transform:scale(1.18);box-shadow:4px 4px 0 var(--ink)}
+.fx-nd b{font-size:12.5px;font-weight:900;color:var(--muted);line-height:1.4;text-align:center;transition:color .3s}
+.fx-nd.on b{color:var(--ink)}
+.fx-nd:hover .d{transform:translateY(-3px)}
+.fx-nd.on:hover .d{transform:scale(1.18)}
+.fx-nd:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+
+.fx-stage{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);min-height:360px}
+.fx-scene{position:relative;background:var(--paper-2);border-right:2px solid var(--ink);overflow:hidden;display:grid;place-items:center}
+.fx-scene::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--hair) 1px,transparent 1px),linear-gradient(90deg,var(--hair) 1px,transparent 1px);background-size:32px 32px}
+.fx-scene svg{position:relative;width:100%;max-width:520px;height:auto;display:block}
+.fx-info{padding:34px 36px 28px;display:flex;flex-direction:column}
+.fx-info .k{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.fx-info .k .n{font-family:var(--display);font-size:64px;line-height:.9;color:var(--blue)}
+.fx-info .k .who{font-size:12px;font-weight:900;padding:3px 10px;background:var(--ink);color:#fff}
+.fx-info .k .who.you{background:var(--yellow);color:var(--ink)}
+.fx-info h3{font-size:24px;font-weight:900;line-height:1.45;color:var(--ink);margin:4px 0 12px}
+.fx-info p{font-size:15.5px;line-height:1.95;color:var(--text)}
+.fx-info .anim>*{animation:fxIn .5s cubic-bezier(.2,.8,.2,1) both}
+.fx-info .anim>*:nth-child(2){animation-delay:.08s}
+.fx-info .anim>*:nth-child(3){animation-delay:.16s}
+.fx-ctrl{margin-top:auto;padding-top:22px;display:flex;align-items:center;gap:12px}
+.fx-ctrl button{appearance:none;border:2px solid var(--ink);background:#fff;width:42px;height:42px;font-size:18px;font-weight:900;cursor:pointer;transition:background .15s,transform .15s}
+.fx-ctrl button:hover{background:var(--yellow);transform:translate(-2px,-2px)}
+.fx-ctrl .pp{width:auto;padding:0 14px;font-size:12px;font-family:'Inter','Noto Sans JP',sans-serif;letter-spacing:.06em}
+.fx-timer{flex:1;height:3px;background:var(--hair);overflow:hidden}
+.fx-timer i{display:block;height:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+.fx-flow.paused .fx-timer i{opacity:.3}
+@media(max-width:900px){
+  .fx-stage{grid-template-columns:1fr}
+  .fx-scene{border-right:0;border-bottom:2px solid var(--ink)}
+  .fx-nd b{display:none}
+  .fx-nd .d{width:38px;height:38px;font-size:15px}
+  .fx-track-line{top:17px}
+  .fx-info{padding:24px 20px}
+}
+
+/* ---- scene animations (.play で開始) ---- */
+.sc *{transform-box:fill-box;transform-origin:center}
+/* 01 list targeting */
+.sc1 .row{opacity:.35}
+.play .sc1 .row{animation:s1row .4s ease forwards;animation-delay:calc(var(--i)*.18s + .1s)}
+@keyframes s1row{to{opacity:1}}
+.play .sc1 .hit{animation:s1hit .35s ease forwards;animation-delay:calc(var(--i)*.35s + 1.3s);opacity:0}
+@keyframes s1hit{from{opacity:0}to{opacity:1}}
+.play .sc1 .ck{animation:fxPop .4s cubic-bezier(.3,1.6,.5,1) both;animation-delay:calc(var(--i)*.35s + 1.45s)}
+.play .sc1 .scope{animation:s1scope 3.4s cubic-bezier(.6,0,.2,1) .4s both}
+@keyframes s1scope{0%{transform:translate(0,0);opacity:0}10%{opacity:1}30%{transform:translate(0,0)}45%{transform:translate(0,96px)}60%{transform:translate(0,96px)}75%{transform:translate(0,144px)}100%{transform:translate(0,144px)}}
+/* 02 send */
+.play .sc2 .pkg{animation:s2fly 2.2s cubic-bezier(.6,0,.2,1) .5s both}
+@keyframes s2fly{0%{transform:translate(0,0)}15%{transform:translate(0,-14px)}100%{transform:translate(236px,0)}}
+.play .sc2 .rcv{animation:s2rcv .5s cubic-bezier(.3,1.6,.5,1) 2.6s both}
+@keyframes s2rcv{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
+.play .sc2 .ok{animation:fxPop .4s cubic-bezier(.3,1.6,.5,1) 2.8s both}
+.play .sc2 .dash{animation:s2dash 2.2s linear .5s both}
+@keyframes s2dash{from{stroke-dashoffset:240}to{stroke-dashoffset:0}}
+/* 03 floor walk */
+.play .sc3 .walker{animation:s3walk 3.6s ease-in-out .3s both}
+@keyframes s3walk{0%{transform:translate(0,0)}18%{transform:translate(118px,0)}36%{transform:translate(118px,0)}56%{transform:translate(118px,118px)}70%{transform:translate(118px,118px)}88%{transform:translate(236px,118px)}100%{transform:translate(236px,118px)}}
+.sc3 .tb{fill:#fff;transition:fill .3s}
+.play .sc3 .tb{animation:s3tb .3s ease forwards;animation-delay:var(--d)}
+@keyframes s3tb{to{fill:var(--yellow)}}
+.play .sc3 .plus{animation:s3plus .9s ease forwards;animation-delay:var(--d);opacity:0}
+@keyframes s3plus{0%{opacity:0;transform:translateY(6px)}30%{opacity:1;transform:translateY(-4px)}100%{opacity:1;transform:translateY(-4px)}}
+/* 04 sort */
+.play .sc4 .cd{animation:s4drop .7s cubic-bezier(.5,0,.3,1.3) both;animation-delay:calc(var(--i)*.28s + .2s)}
+@keyframes s4drop{from{transform:translate(var(--fx),-150px) rotate(-12deg);opacity:0}to{transform:none;opacity:1}}
+.play .sc4 .lv{animation:s4lv .6s ease both;animation-delay:calc(var(--i)*.28s + .6s)}
+@keyframes s4lv{from{transform:scaleY(0)}to{transform:none}}
+.sc4 .lv{transform-origin:bottom}
+/* 05 call */
+.play .sc5 .wave{animation:s5wave 1.2s ease-out infinite;animation-delay:calc(var(--i)*.2s)}
+@keyframes s5wave{0%{opacity:0;transform:scale(.6)}40%{opacity:1}100%{opacity:0;transform:scale(1.2)}}
+.play .sc5 .ph{animation:s5ring .5s ease-in-out 3 .2s}
+@keyframes s5ring{0%,100%{transform:rotate(0)}25%{transform:rotate(-10deg)}75%{transform:rotate(10deg)}}
+.play .sc5 .ln{animation:s1row .35s ease both;animation-delay:calc(var(--i)*.45s + .6s);opacity:.2}
+.play .sc5 .st{animation:fxPop .35s cubic-bezier(.3,1.6,.5,1) both;animation-delay:calc(var(--i)*.45s + .8s)}
+/* 06 handoff */
+.play .sc6 .day{animation:s6day .4s ease both;animation-delay:calc(var(--i)*.07s + .2s)}
+@keyframes s6day{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+.play .sc6 .pick{animation:s6pick .5s cubic-bezier(.3,1.6,.5,1) 1.5s both}
+@keyframes s6pick{from{transform:scale(0)}to{transform:none}}
+.play .sc6 .mv{animation:s6mv 1.2s cubic-bezier(.6,0,.2,1) 2.2s both}
+@keyframes s6mv{from{transform:translate(0,0);opacity:0}20%{opacity:1}to{transform:translate(172px,-8px);opacity:1}}
+.play .sc6 .you2{animation:s2rcv .5s cubic-bezier(.3,1.6,.5,1) 3.3s both}
+@media (prefers-reduced-motion:reduce){.fx-scene *{animation:none!important;opacity:1!important}}
+
+/* ---------- infographic: model case bar ---------- */
+.fx-bill{margin-top:16px;background:rgba(250,250,247,.06);border:1.5px solid rgba(250,250,247,.22);padding:22px 24px}
+.fx-bill-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.fx-bill-h span{font-size:13px;font-weight:900;color:rgba(250,250,247,.8);letter-spacing:.06em}
+.fx-bill-h b{font-family:var(--display);font-weight:400;font-size:34px;color:var(--yellow);line-height:1;font-variant-numeric:tabular-nums}
+.fx-bar{display:flex;height:22px;background:rgba(250,250,247,.08);overflow:hidden}
+.fx-seg{height:100%;width:0;transition:width 1s cubic-bezier(.5,0,.2,1)}
+.fx-seg.s1{background:var(--blue);transition-delay:.1s}
+.fx-seg.s2{background:#fff;transition-delay:1s}
+.fx-seg.s3{background:var(--yellow);transition-delay:1.4s}
+.fx-legend{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:8px 28px;margin-top:14px}
+.fx-legend div{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(250,250,247,.85);font-weight:700}
+.fx-legend i{width:12px;height:12px;flex:none}
+.fx-legend b{font-family:var(--display);font-weight:400;font-size:17px;color:#fff;margin-left:2px}
+@media(max-width:700px){.fx-legend{grid-template-columns:1fr}}
+
+/* ---------- compare table ---------- */
+html.fx .compare tbody tr{transition:opacity .5s ease,transform .5s ease;transition-delay:calc(var(--r)*70ms)}
+html.fx .table-scroll:not(.show) .compare tbody tr{opacity:0;transform:translateX(-14px)}
+html.fx .compare td.hero-col .ico.good{transform:scale(0);transition:transform .45s cubic-bezier(.3,1.6,.5,1);transition-delay:calc(var(--r)*70ms + .35s)}
+html.fx .table-scroll.show .compare td.hero-col .ico.good{transform:scale(1)}
+html.fx .compare tbody tr:hover td{background:#FFFBD6}
+html.fx .compare tbody tr:hover td.hero-col{background:#DDE3FF}
+
+/* ---------- flow: scroll-driven line ---------- */
+.fx-flowline{position:absolute;left:27px;top:36px;width:2px;background:var(--blue);transform-origin:top;transform:scaleY(0);z-index:0;pointer-events:none}
+html.fx .fstep .f-num{transition:background .3s,color .3s,transform .35s cubic-bezier(.3,1.6,.5,1)}
+html.fx .fstep.fx-pass:not(.client-step) .f-num{background:var(--blue)}
+html.fx .fstep.fx-pass .f-num{transform:scale(1.08)}
+@media(max-width:900px){.fx-flowline{left:23px}}
+
+/* strict list pop */
+html.fx .strict li{transition:opacity .4s,transform .4s;transition-delay:calc(var(--i)*90ms + .2s)}
+html.fx .strict:not(.show) li{opacity:0;transform:translateX(-10px)}
+
+@media (prefers-reduced-motion:reduce){
+  html.fx *,html.fx *::before,html.fx *::after{animation:none!important;transition:none!important}
+  html.fx .fx-ch{opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important}
+  
+}
+</style>
+<script id="fx-script">
+(function(){
+  try{ if(/[?&]fx=0(&|$)/.test(location.search)) return; }catch(e){}
+  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  root.classList.add('fx');
+  var FINE = window.matchMedia && matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* ---- 3言語ラベル(新規に追加する図のみ) ---- */
+  var T = {
+    ja:{rail:'工程の全体像（貴社の作業は 02 だけ）',hint:'番号をクリックすると各工程を表示します',play:'▶ 再生',pause:'❚❚ 停止',n:['営業設計','名刺・資料のご提供','会場でご挨拶・名刺交換','データ化・選別','フォロー架電','商談アポ連携'],
+        us:'当社',you:'貴社',ph:['会期前','会期中','会期後 1か月以内'],
+        bill:'モデルケースの内訳（名刺30社・商談アポ3件）',lg:['初期設計費','名刺 30社','商談アポ 3件'],yen:function(v){return v.toLocaleString('ja-JP')+'円'}},
+    en:{rail:'The whole process (your only task is step 02)',hint:'Click a number to view each step',play:'▶ Play',pause:'❚❚ Pause',n:['Sales design','Send cards & materials','Greetings & card exchange at the show','Digitize & rank','Follow-up calls','Meeting handoff'],
+        us:'Us',you:'You',ph:['Before the show','During','Within 1 month after'],
+        bill:'Model case breakdown (30 cards / 3 meetings)',lg:['Setup fee','30 cards','3 meetings'],yen:function(v){return '¥'+v.toLocaleString('en-US')}},
+    'zh-Hans':{rail:'流程全貌（贵司只需完成 02）',hint:'点击编号查看各流程',play:'▶ 播放',pause:'❚❚ 暂停',n:['营销设计','提供名片・资料','会场问候・交换名片','数据化・筛选','跟进电话','商谈预约对接'],
+        us:'我方',you:'贵司',ph:['展前','展期','展后1个月内'],
+        bill:'示例费用明细（名片30家・商谈3件）',lg:['初期设计费','名片 30家','商谈 3件'],yen:function(v){return v.toLocaleString('zh-CN')+'日元'}}
+  };
+  function L(){return T[root.lang]||T.ja}
+
+  /* ---- 文字分割(キネティック・タイポ) ---- */
+  var TOK=/[A-Za-z0-9¥$%,.'’\-]+[、。，．」』）)!?！？:：]*|[^\s][、。，．」』）)!?！？ーｰ]*|\s+/g;
+  function split(el){
+    if(!el || el.classList.contains('fx-split')) return;
+    el.setAttribute('aria-label', el.textContent.replace(/\s+/g,' ').trim());
+    var n=0, walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null), nodes=[];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(tn){
+      var s=tn.nodeValue; if(!s.trim()) return;
+      var frag=document.createDocumentFragment();
+      (s.match(TOK)||[]).forEach(function(tok){
+        if(/^\s+$/.test(tok)){frag.appendChild(document.createTextNode(tok));return}
+        var sp=document.createElement('span');sp.className='fx-ch';sp.setAttribute('aria-hidden','true');
+        sp.style.setProperty('--i',n++);sp.textContent=tok;frag.appendChild(sp);
+      });
+      tn.parentNode.replaceChild(frag,tn);
+    });
+    el.classList.add('fx-split');
+  }
+  if(!RM){
+    split(document.querySelector('.fv h1'));
+    document.querySelectorAll('main h2.reveal, main .bridge.reveal').forEach(split);
+  }
+  document.querySelectorAll('.mark').forEach(function(m){m.classList.add('fx-mk');once(m,function(){setTimeout(function(){m.classList.add('fx-on')},500)},.8)});
+
+  /* 言語切替時：見出しを再アニメーション */
+  new MutationObserver(function(){
+    var h=document.querySelector('.fv h1');
+    if(h && !RM && !h.querySelector('.fx-ch')){h.classList.remove('fx-split');split(h)}
+    document.querySelectorAll('.mark').forEach(function(m){m.classList.add('fx-mk','fx-on')});
+    buildRail(); buildBill(true);
+  }).observe(root,{attributes:true,attributeFilter:['lang']});
+
+  /* ---- 汎用：表示されたら一度だけ ---- */
+  function once(el,fn,th){ if(!el) return; if(RM||!('IntersectionObserver' in window)){fn();return}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fn();io.disconnect()}})},{threshold:th||.3});io.observe(el)}
+
+  /* ---- 数字のカウントアップ ---- */
+  function countText(node,dur){
+    var m=node.nodeValue.match(/^(\D*)([\d,]+)(.*)$/); if(!m) return;
+    var to=parseInt(m[2].replace(/,/g,''),10), comma=m[2].indexOf(',')>-1;
+    if(RM||!to) return;
+    var t0=null; node.nodeValue=m[1]+'0'+m[3];
+    function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/(dur||1100)),e=1-Math.pow(1-p,4),v=Math.round(to*e);
+      node.nodeValue=m[1]+(comma?v.toLocaleString('ja-JP'):v)+m[3];if(p<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);
+  }
+  function firstText(el){for(var c=el.firstChild;c;c=c.nextSibling){if(c.nodeType===3&&/\d/.test(c.nodeValue))return c}return null}
+  setTimeout(function(){document.querySelectorAll('.trust-item .t-num b').forEach(function(b){var t=b.firstChild;if(t&&t.nodeType===3)countText(t,1200)})},900);
+  document.querySelectorAll('.plan-price').forEach(function(p){once(p,function(){var t=firstText(p);if(t)countText(t,1100)},.6)});
+  document.querySelectorAll('.pd-row b.num').forEach(function(b){once(b,function(){var t=firstText(b);if(t)countText(t,900)},.8)});
+
+  /* ---- METHOD：インタラクティブ工程ステッパー ---- */
+  var rail, flowState={i:0,timer:null,t0:0,raf:0,playing:!RM,inView:false,hover:false};
+  var SC=[
+    /* 01 営業設計：出展社リストからターゲットを選定 */
+    function(){var h='<svg class="sc sc1" viewBox="0 0 480 300"><rect x="90" y="30" width="300" height="240" fill="#fff" stroke="#0A0A0B" stroke-width="3"/><rect x="90" y="30" width="300" height="28" fill="#0A0A0B"/><circle cx="106" cy="44" r="4" fill="#FFE500"/><rect x="118" y="40" width="90" height="8" fill="#fff" opacity=".7"/>';
+      for(var i=0;i<5;i++){var y=72+i*48,hit=[0,2,3].indexOf(i);
+        if(hit>-1)h+='<rect class="hit" style="--i:'+hit+'" x="98" y="'+(y-6)+'" width="284" height="38" fill="#FFF7B0"/>';
+        h+='<g class="row" style="--i:'+i+'"><rect x="108" y="'+y+'" width="26" height="26" fill="#EEF1FF" stroke="#1D3BFF" stroke-width="2"/><rect x="146" y="'+(y+4)+'" width="'+(150-i*12)+'" height="7" fill="#0A0A0B" opacity=".75"/><rect x="146" y="'+(y+16)+'" width="'+(100+i*9)+'" height="5" fill="#0A0A0B" opacity=".25"/></g>';
+        if(hit>-1)h+='<g class="ck" style="--i:'+hit+'"><circle cx="356" cy="'+(y+13)+'" r="12" fill="#1D3BFF"/><path d="M350 '+(y+13)+' l4 4 l8 -8" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></g>';}
+      return h+'<g class="scope"><circle cx="356" cy="85" r="22" fill="none" stroke="#1D3BFF" stroke-width="3"/><path d="M356 57v12M356 101v12M328 85h12M372 85h12" stroke="#1D3BFF" stroke-width="3"/></g></svg>'},
+    /* 02 名刺・資料のご提供 */
+    function(t){return '<svg class="sc sc2" viewBox="0 0 480 300"><g><rect x="40" y="90" width="110" height="120" fill="#FFFBD6" stroke="#0A0A0B" stroke-width="3"/><path d="M62 190v-56h30v56M100 190v-80h30v80" fill="none" stroke="#0A0A0B" stroke-width="3"/><rect x="40" y="218" width="110" height="26" fill="#FFE500" stroke="#0A0A0B" stroke-width="2"/><text x="95" y="236" text-anchor="middle" font-size="13" font-weight="900" fill="#0A0A0B">'+t.you+'</text></g>'+
+      '<path class="dash" d="M160 150 H330" stroke="#0A0A0B" stroke-width="2.5" stroke-dasharray="8 7" style="stroke-dashoffset:240" fill="none"/>'+
+      '<g class="rcv"><rect x="330" y="90" width="110" height="120" fill="#1D3BFF" stroke="#0A0A0B" stroke-width="3"/><text x="385" y="156" text-anchor="middle" font-size="15" font-weight="900" fill="#fff" font-family="Inter,sans-serif">TENJI</text><text x="385" y="174" text-anchor="middle" font-size="15" font-weight="900" fill="#fff" font-family="Inter,sans-serif">HACK</text><rect x="330" y="218" width="110" height="26" fill="#0A0A0B"/><text x="385" y="236" text-anchor="middle" font-size="13" font-weight="900" fill="#fff">'+t.us+'</text></g>'+
+      '<g class="pkg"><rect x="104" y="118" width="54" height="66" fill="#fff" stroke="#0A0A0B" stroke-width="2.5"/><path d="M114 134h34M114 146h34M114 158h22" stroke="#0A0A0B" stroke-width="2.5" opacity=".5"/><rect x="120" y="152" width="58" height="34" fill="#fff" stroke="#1D3BFF" stroke-width="2.5"/><rect x="128" y="161" width="26" height="5" fill="#1D3BFF"/><rect x="128" y="172" width="38" height="4" fill="#0A0A0B" opacity=".3"/></g>'+
+      '<g class="ok"><circle cx="430" cy="92" r="16" fill="#FFE500" stroke="#0A0A0B" stroke-width="2.5"/><path d="M422 92 l6 6 l10 -11" stroke="#0A0A0B" stroke-width="3.5" fill="none" stroke-linecap="round"/></g></svg>'},
+    /* 03 会場を回り、狙ったブースを訪問 */
+    function(){var B=[[60,30],[170,30,1,.95],[280,30],[390,30],[60,136],[250,136],[360,136],[60,244],[170,244,1,2.3],[280,244,1,3.47],[390,244]];
+      var h='<svg class="sc sc3" viewBox="0 0 480 300"><path d="M110 100 H228 V218 H346" fill="none" stroke="#1D3BFF" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round"/>';
+      B.forEach(function(b){h+='<rect class="'+(b[2]?'tb':'')+'" style="--d:'+(b[3]||0)+'s" x="'+b[0]+'" y="'+b[1]+'" width="70" height="'+(b[1]===136?44:44)+'" fill="#fff" stroke="#0A0A0B" stroke-width="2.5"/>';
+        if(b[2])h+='<text class="plus" style="--d:'+b[3]+'s" x="'+(b[0]+35)+'" y="'+(b[1]+28)+'" text-anchor="middle" font-size="15" font-weight="900" fill="#0A0A0B" font-family="Inter,sans-serif">+1</text>'});
+      return h+'<g class="walker"><circle cx="110" cy="100" r="14" fill="#1D3BFF" stroke="#0A0A0B" stroke-width="2.5"/><circle cx="110" cy="100" r="5" fill="#fff"/></g></svg>'},
+    /* 04 データ化・A/B/C選別 */
+    function(){var h='<svg class="sc sc4" viewBox="0 0 480 300">',L=['A','B','C'],H=[64,40,20],C=['#1D3BFF','#5B73FF','#A9B6FF'];
+      L.forEach(function(l,i){var x=80+i*120;h+='<rect class="lv" style="--i:'+(i*2)+'" x="'+(x+6)+'" y="'+(262-H[i])+'" width="88" height="'+H[i]+'" fill="'+C[i]+'"/><path d="M'+x+' 180 V266 H'+(x+100)+' V180" fill="none" stroke="#0A0A0B" stroke-width="3"/><rect x="'+(x+30)+'" y="272" width="40" height="22" fill="#0A0A0B"/><text x="'+(x+50)+'" y="288" text-anchor="middle" font-size="14" font-weight="900" fill="#FFE500" font-family="Inter,sans-serif">'+l+'</text>'});
+      [[0,-40],[0,30],[1,-10],[2,60],[0,-80],[1,40]].forEach(function(c,i){var x=95+c[0]*120,y=150-Math.floor(i/3)*0;h+='<g class="cd" style="--i:'+i+';--fx:'+c[1]+'px"><rect x="'+(x+(i%2)*14)+'" y="'+(130+(i%3)*8)+'" width="56" height="34" fill="#fff" stroke="#0A0A0B" stroke-width="2.2"/><rect x="'+(x+8+(i%2)*14)+'" y="'+(139+(i%3)*8)+'" width="24" height="5" fill="#1D3BFF"/><rect x="'+(x+8+(i%2)*14)+'" y="'+(149+(i%3)*8)+'" width="34" height="4" fill="#0A0A0B" opacity=".3"/></g>'});
+      return h+'</svg>'},
+    /* 05 フォロー架電 */
+    function(){var h='<svg class="sc sc5" viewBox="0 0 480 300"><g class="ph"><rect x="60" y="80" width="76" height="140" rx="10" fill="#fff" stroke="#0A0A0B" stroke-width="3"/><rect x="72" y="96" width="52" height="92" fill="#EEF1FF"/><circle cx="98" cy="204" r="6" fill="#0A0A0B"/></g>';
+      for(var i=0;i<3;i++)h+='<path class="wave" style="--i:'+i+'" d="M'+(150+i*12)+' '+(118-i*10)+' a'+(30+i*12)+' '+(30+i*12)+' 0 0 1 0 '+(64+i*20)+'" fill="none" stroke="#1D3BFF" stroke-width="3" stroke-linecap="round"/>';
+      var S=['ok','no','ok','ap'];
+      S.forEach(function(s,i){var y=62+i*48;h+='<g class="ln" style="--i:'+i+'"><rect x="224" y="'+y+'" width="200" height="36" fill="#fff" stroke="#0A0A0B" stroke-width="2"/><rect x="236" y="'+(y+11)+'" width="'+(90-i*8)+'" height="6" fill="#0A0A0B" opacity=".7"/><rect x="236" y="'+(y+22)+'" width="60" height="4" fill="#0A0A0B" opacity=".25"/></g>';
+        var cx=400,cy=y+18;h+='<g class="st" style="--i:'+i+'">'+(s==='no'?'<circle cx="'+cx+'" cy="'+cy+'" r="11" fill="#E4E4E7"/><path d="M'+(cx-5)+' '+cy+'h10" stroke="#71717A" stroke-width="3"/>':s==='ap'?'<circle cx="'+cx+'" cy="'+cy+'" r="12" fill="#FFE500" stroke="#0A0A0B" stroke-width="2"/><path d="M'+(cx-5)+' '+cy+' l4 4 l7 -8" stroke="#0A0A0B" stroke-width="3" fill="none"/>':'<circle cx="'+cx+'" cy="'+cy+'" r="11" fill="#1D3BFF"/><path d="M'+(cx-5)+' '+cy+' l4 4 l7 -8" stroke="#fff" stroke-width="3" fill="none"/>')+'</g>'});
+      return h+'</svg>'},
+    /* 06 商談アポ連携 */
+    function(t){var h='<svg class="sc sc6" viewBox="0 0 480 300"><rect x="50" y="56" width="200" height="190" fill="#fff" stroke="#0A0A0B" stroke-width="3"/><rect x="50" y="56" width="200" height="34" fill="#0A0A0B"/><path d="M90 46v20M210 46v20" stroke="#0A0A0B" stroke-width="5" stroke-linecap="round"/>';
+      for(var r=0;r<3;r++)for(var c=0;c<4;c++){var k=r*4+c;h+='<rect class="day" style="--i:'+k+'" x="'+(66+c*44)+'" y="'+(104+r*44)+'" width="34" height="32" fill="'+(k===6?'#fff':'#F5F4EF')+'" stroke="#0A0A0B" stroke-width="1.5"/>'}
+      h+='<g class="pick"><rect x="154" y="192" width="34" height="32" fill="#FFE500" stroke="#0A0A0B" stroke-width="2.5"/><path d="M162 208 l6 6 l12 -13" stroke="#0A0A0B" stroke-width="3.5" fill="none" stroke-linecap="round"/></g>';
+      return h+'<g class="you2"><rect x="360" y="96" width="90" height="110" fill="#FFFBD6" stroke="#0A0A0B" stroke-width="3"/><path d="M378 190v-50h24v50M410 190v-70h24v70" fill="none" stroke="#0A0A0B" stroke-width="3"/><rect x="360" y="214" width="90" height="26" fill="#FFE500" stroke="#0A0A0B" stroke-width="2"/><text x="405" y="232" text-anchor="middle" font-size="13" font-weight="900" fill="#0A0A0B">'+t.you+'</text></g>'+'<g class="mv"><rect x="200" y="132" width="66" height="44" fill="#1D3BFF" stroke="#0A0A0B" stroke-width="2.5"/><rect x="210" y="143" width="34" height="5" fill="#fff"/><rect x="210" y="155" width="46" height="4" fill="#fff" opacity=".6"/><rect x="210" y="164" width="28" height="4" fill="#fff" opacity=".6"/></g>'+'</svg>'}
+  ];
+  var PH=[0,0,1,2,2,2], DUR=5600;
+  function stepData(i){var s=document.querySelectorAll('#process .pipeline .step')[i]; if(!s) return null;
+    var w=s.querySelector('.who');return {who:w?w.textContent:'',you:s.classList.contains('client'),h:s.querySelector('h3').innerHTML,p:s.querySelector('p').innerHTML}}
+  function buildRail(){
+    var pipe=document.querySelector('#process .pipeline'); if(!pipe) return;
+    var t=L(); if(!rail){rail=document.createElement('div');rail.className='fx-flow';pipe.parentNode.insertBefore(rail,pipe);
+      rail.addEventListener('mouseenter',function(){flowState.hover=true});rail.addEventListener('mouseleave',function(){flowState.hover=false;flowState.t0=performance.now()-flowState.el})}
+    var h='<div class="fx-flow-top"><div class="fx-flow-t"><b>'+t.rail+'</b><span>'+t.hint+'</span></div><div class="fx-phases2">'+t.ph.map(function(p){return '<span>'+p+'</span>'}).join('')+'</div><div class="fx-track"><div class="fx-track-line"><i></i></div>';
+    t.n.forEach(function(n,i){h+='<button type="button" class="fx-nd'+(i===1?' you':'')+'" data-i="'+i+'" aria-label="0'+(i+1)+' '+n+'"><span class="d">0'+(i+1)+'</span><b>'+n+'</b></button>'});
+    h+='</div></div><div class="fx-stage"><div class="fx-scene" aria-hidden="true"></div><div class="fx-info" aria-live="polite"><div class="anim"></div><div class="fx-ctrl"><button type="button" class="pv" aria-label="prev">←</button><button type="button" class="pp"></button><button type="button" class="nx" aria-label="next">→</button><div class="fx-timer"><i></i></div></div></div></div>';
+    rail.innerHTML=h;
+    rail.querySelectorAll('.fx-nd').forEach(function(b){b.addEventListener('click',function(){go(+b.dataset.i)})});
+    rail.querySelector('.pv').addEventListener('click',function(){go(flowState.i-1)});
+    rail.querySelector('.nx').addEventListener('click',function(){go(flowState.i+1)});
+    rail.querySelector('.pp').addEventListener('click',function(){flowState.playing=!flowState.playing;flowState.t0=performance.now();setPP()});
+    setPP(); show(flowState.i);
+  }
+  function setPP(){var b=rail.querySelector('.pp'),t=L();b.textContent=flowState.playing?t.pause:t.play;rail.classList.toggle('paused',!flowState.playing)}
+  function show(i){
+    var t=L(),d=stepData(i); if(!d) return; flowState.i=i;
+    rail.querySelectorAll('.fx-nd').forEach(function(b,k){b.classList.toggle('on',k===i);b.classList.toggle('done',k<=i);b.setAttribute('aria-current',k===i?'step':'false')});
+    rail.querySelectorAll('.fx-phases2 span').forEach(function(s,k){s.classList.toggle('on',k===PH[i])});
+    rail.querySelector('.fx-track-line').style.setProperty('--p',i/5);
+    var sc=rail.querySelector('.fx-scene');sc.classList.remove('play');sc.innerHTML=SC[i](t);void sc.offsetWidth;sc.classList.add('play');
+    rail.querySelector('.anim').innerHTML='<div class="k"><span class="n">0'+(i+1)+'</span><span class="who'+(d.you?' you':'')+'">'+d.who+'</span></div><h3>'+d.h+'</h3><p>'+d.p+'</p>';
+    flowState.t0=performance.now();flowState.el=0;
+  }
+  function go(i){show((i+6)%6)}
+  function loop(now){
+    var s=flowState, bar=rail&&rail.querySelector('.fx-timer i');
+    if(bar){ if(s.playing&&s.inView&&!s.hover&&!RM){s.el=now-s.t0; if(s.el>=DUR){go(s.i+1);s.el=0}} else {s.t0=now-(s.el||0)}
+      bar.style.transform='scaleX('+Math.min(1,(s.el||0)/DUR)+')'}
+    s.raf=requestAnimationFrame(loop);
+  }
+  buildRail();
+  if(rail){
+    if('IntersectionObserver' in window) new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!flowState.seen){flowState.seen=true;show(flowState.i)}flowState.inView=v},{threshold:.45}).observe(rail);
+    requestAnimationFrame(loop);
+  }
+
+  /* ---- インフォグラフィック②：モデルケースの積み上げバー ---- */
+  var bill, V=[300000,15000,60000], TOTAL=375000;
+  function buildBill(keep){
+    var model=document.querySelector('#pricing .pd-model'); if(!model) return;
+    var t=L(), on=bill&&bill.classList.contains('on');
+    if(!bill){bill=document.createElement('div');bill.className='fx-bill';model.parentNode.insertBefore(bill,model.nextSibling)}
+    var c=['var(--blue)','#fff','var(--yellow)'];
+    var h='<div class="fx-bill-h"><span>'+t.bill+'</span><b class="fx-total">'+t.yen(on||RM?TOTAL:0)+'</b></div><div class="fx-bar">';
+    V.forEach(function(v,i){h+='<div class="fx-seg s'+(i+1)+'" style="'+(on||RM?'width:'+(v/TOTAL*100)+'%':'')+'"></div>'});
+    h+='</div><div class="fx-legend">';
+    V.forEach(function(v,i){h+='<div><i style="background:'+c[i]+'"></i>'+t.lg[i]+'<b>'+t.yen(v)+'</b></div>'});
+    bill.innerHTML=h+'</div>';
+    if(on) bill.classList.add('on');
+  }
+  buildBill();
+  once(bill,function(){
+    bill.classList.add('on');
+    bill.querySelectorAll('.fx-seg').forEach(function(s,i){s.style.width=(V[i]/TOTAL*100)+'%'});
+    var tot=bill.querySelector('.fx-total'), t0=null;
+    if(RM){tot.textContent=L().yen(TOTAL);return}
+    setTimeout(function(){requestAnimationFrame(function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/1500),e=1-Math.pow(1-p,3);
+      tot.textContent=L().yen(Math.round(TOTAL*e/1000)*1000);if(p<1)requestAnimationFrame(f);else tot.textContent=L().yen(TOTAL)})},150);
+  },.5);
+
+  /* ---- 比較表・アポ定義：行ごとの時間差 ---- */
+  document.querySelectorAll('.compare tbody tr').forEach(function(tr,i){tr.style.setProperty('--r',i)});
+  document.querySelectorAll('.strict li').forEach(function(li,i){li.style.setProperty('--i',i)});
+
+  /* ---- FLOW：スクロール連動のライン ---- */
+  (function(){
+    var flow=document.querySelector('#flow .flow'); if(!flow||RM) return;
+    var line=document.createElement('div');line.className='fx-flowline';flow.appendChild(line);
+    var steps=[].slice.call(flow.querySelectorAll('.fstep')), ticking=false;
+    function upd(){
+      ticking=false;
+      var r=flow.getBoundingClientRect(), last=steps[steps.length-1].getBoundingClientRect();
+      var len=(last.top-r.top)+28-36; line.style.height=len+'px';
+      var mid=innerHeight*.6, p=Math.min(1,Math.max(0,(mid-(r.top+36))/len));
+      line.style.transform='scaleY('+p+')';
+      steps.forEach(function(s){var n=s.querySelector('.f-num').getBoundingClientRect();s.classList.toggle('fx-pass',n.top+n.height/2<mid)});
+    }
+    addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd)}},{passive:true});
+    addEventListener('resize',upd);upd();
+  })();
+
+  /* ---- ナビ：現在地ハイライト ---- */
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-cta)'));
+    var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+    var tick=false;
+    function upd(){tick=false;var y=innerHeight*.35,cur=-1;
+      secs.forEach(function(s,i){if(s){var r=s.getBoundingClientRect();if(r.top<=y&&r.bottom>y)cur=i}});
+      links.forEach(function(a,i){a.classList.toggle('fx-active',i===cur)})}
+    addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});upd();
+  })();
+
+  if(RM) return;
+
+  /* ---- FV写真のパララックス ---- */
+  (function(){
+    var img=document.querySelector('.fv-photo .ph img'); if(!img) return; var tick=false;
+    function upd(){tick=false;var y=Math.min(scrollY,700);img.style.transform='scale(1.08) translateY('+(y*.05)+'px)'}
+    addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
+  })();
+
+  /* ---- CTAボタンの光(一定間隔) ---- */
+  (function(){
+    var b=document.querySelector('.fv-cta .btn-primary'); if(!b) return;
+    setInterval(function(){b.classList.add('fx-shine');setTimeout(function(){b.classList.remove('fx-shine')},1000)},4500);
+  })();
+
+  /* ---- 料金カード：カーソル追従の光＋わずかな傾き ---- */
+  if(FINE){
+    document.querySelectorAll('.plan-card').forEach(function(c){
+      c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+        c.style.setProperty('--mx',x+'px');c.style.setProperty('--my',y+'px');
+        c.style.transform='perspective(900px) rotateX('+((r.height/2-y)/r.height*4)+'deg) rotateY('+((x-r.width/2)/r.width*4)+'deg) translateY(-4px)'});
+      c.addEventListener('mouseleave',function(){c.style.transform=''});
+    });
+  }
+
+  /* ---- FAQ：なめらかな開閉 ---- */
+  document.querySelectorAll('#faq details').forEach(function(d){
+    var s=d.querySelector('summary'), a=d.querySelector('.faq-a'); if(!s||!a||!a.animate) return;
+    s.addEventListener('click',function(e){
+      e.preventDefault();
+      if(d.open){var h=a.offsetHeight;var an=a.animate([{height:h+'px',opacity:1},{height:'0px',opacity:0}],{duration:260,easing:'ease'});
+        a.style.overflow='hidden';an.onfinish=function(){d.open=false;a.style.overflow=''}}
+      else{d.open=true;var h2=a.offsetHeight;a.style.overflow='hidden';
+        a.animate([{height:'0px',opacity:0},{height:h2+'px',opacity:1}],{duration:320,easing:'cubic-bezier(.2,.8,.2,1)'}).onfinish=function(){a.style.overflow=''}}
+    });
+  });
+})();
+</script>
+<!-- ===== FX-LAYER v1 END ===== -->
+
 </body>
 </html>
