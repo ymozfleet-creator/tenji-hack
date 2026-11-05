@@ -397,5 +397,144 @@ footer{padding:30px 0 40px;font-size:12.5px;color:var(--sub);line-height:1.95}
   ds.forEach(function(d){d.addEventListener("toggle",function(){if(d.open){ds.forEach(function(o){if(o!==d)o.open=false})}})});
 })();
 </script>
+<!-- ===== FX-LAYER-SP v1 START =====
+  スマホ版の演出レイヤー(2026-11 追加)。
+  ・元のデザインに戻す場合：この START 〜 END の範囲をまるごと削除するだけで、追加前の状態に戻ります。
+  ・URLに ?fx=0 を付けると、演出なし(元の表示)で確認できます。
+  ・文言・料金などの数値は変更していません。
+-->
+<style id="fx-style-sp">
+html.fx .fx-ch{display:inline-block}
+html.fx .rv h2.fx-split .fx-ch{opacity:0;transform:translateY(.6em);filter:blur(4px)}
+html.fx .rv.in h2.fx-split .fx-ch{animation:fxUp .55s cubic-bezier(.16,.84,.28,1) forwards;animation-delay:calc(var(--i)*22ms + .1s)}
+@keyframes fxUp{to{opacity:1;transform:none;filter:blur(0)}}
+html.fx .rv h2 .bar{width:0;transition:width .6s cubic-bezier(.16,.84,.28,1) .05s}
+html.fx .rv.in h2 .bar{width:44px}
+
+/* hero */
+html.fx .hero h1 .mark{background-size:0% 100%;background-image:linear-gradient(var(--tape),var(--tape));background-repeat:no-repeat;background-color:transparent;color:#fff;
+  animation:fxMk .55s cubic-bezier(.6,0,.2,1) .85s forwards}
+@keyframes fxMk{to{background-size:100% 100%;color:var(--hall)}}
+html.fx .hero .sub{animation:fxIn .6s ease .5s both}
+html.fx .vs .c,html.fx .vs .ar{animation:fxIn .6s cubic-bezier(.16,.84,.28,1) both}
+html.fx .vs .old{animation-delay:.75s}
+html.fx .vs .ar{animation:fxIn .5s ease 1.05s both,nudge 1.8s ease-in-out 1.6s infinite}
+html.fx .vs .new{animation:fxPopIn .6s cubic-bezier(.3,1.5,.5,1) 1.2s both}
+html.fx .vs .old .n .x{text-decoration:none;position:relative}
+html.fx .vs .old .n .x::after{content:"";position:absolute;left:-4%;right:-4%;top:52%;height:3px;background:currentColor;transform:scaleX(0);transform-origin:left;animation:fxStrike .45s ease 1.0s forwards}
+@keyframes fxStrike{to{transform:scaleX(1)}}
+@keyframes fxIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fxPopIn{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+
+/* infographic: cost bars */
+.fx-cost{padding:0 0 24px;margin-top:-6px}
+.fx-cost-r{display:grid;grid-template-columns:5.6em 1fr;align-items:center;gap:10px;margin:8px 0}
+.fx-cost-r span{font-size:11.5px;color:#93AAC4;letter-spacing:.04em}
+.fx-cost-r i{display:block;height:12px;width:0;transition:width 1.1s cubic-bezier(.5,0,.2,1)}
+.fx-cost-r.o i{background:#3A4E66}
+.fx-cost-r.n i{background:var(--tape);transition-delay:.35s}
+.fx-cost.on .fx-cost-r.o i{width:100%}
+.fx-cost.on .fx-cost-r.n i{width:30%}
+.fx-cost p{margin:8px 0 0;font-size:11px;color:#6B8099;line-height:1.6}
+
+/* lists stagger */
+html.fx .rv .pains li,html.fx .rv .merit,html.fx .rv .chips b,html.fx .rv .map .b,html.fx .rv .map .go{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s cubic-bezier(.16,.84,.28,1);transition-delay:calc(var(--i)*90ms + .25s)}
+html.fx .rv.in .pains li,html.fx .rv.in .merit,html.fx .rv.in .chips b,html.fx .rv.in .map .b,html.fx .rv.in .map .go{opacity:1;transform:none}
+
+/* steps timeline */
+html.fx .steps{position:relative}
+.fx-sline{position:absolute;left:-17px;top:0;width:3px;background:var(--tape);transform-origin:top;transform:scaleY(0);pointer-events:none}
+html.fx .steps li{position:relative}
+html.fx .steps li::before{content:"";position:absolute;left:-22px;top:31px;width:13px;height:13px;border-radius:50%;background:var(--paper);border:2px solid var(--line);transition:background .3s,border-color .3s,transform .3s}
+html.fx .steps li.fx-pass::before{background:var(--tape);border-color:var(--ink);transform:scale(1.15)}
+html.fx .steps .n{display:inline-block;transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+html.fx .steps li.fx-pass .n{transform:scale(1.12)}
+html.fx .steps{margin-left:20px}
+
+/* plan */
+html.fx .rv .plan{transition:opacity .5s ease,transform .5s cubic-bezier(.16,.84,.28,1)}
+html.fx .rv:not(.in) .plan{opacity:0;transform:translateY(16px)}
+html.fx .plan .t .pr{font-variant-numeric:tabular-nums}
+
+/* sticky bar shine + progress */
+html.fx .bar2 .m{position:relative;overflow:hidden}
+html.fx .bar2 .m::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg)}
+html.fx .bar2.on .m::after{animation:fxShine 4.5s ease-in-out 1s infinite}
+@keyframes fxShine{0%,70%{left:-60%}90%,100%{left:130%}}
+.fx-prog{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--tape);transform-origin:left;transform:scaleX(0);z-index:30;pointer-events:none}
+
+@media (prefers-reduced-motion:reduce){
+  html.fx *,html.fx *::before,html.fx *::after{animation:none!important;transition:none!important}
+  html.fx .fx-ch,html.fx .rv .pains li,html.fx .rv .merit,html.fx .rv .chips b,html.fx .rv .map .b,html.fx .rv .map .go,html.fx .rv .plan{opacity:1!important;transform:none!important;filter:none!important}
+  html.fx .hero h1 .mark{background-size:100% 100%;color:var(--hall)}
+  html.fx .rv h2 .bar{width:44px}
+  .fx-cost .fx-cost-r.o i{width:100%}.fx-cost .fx-cost-r.n i{width:30%}
+  .fx-prog{display:none}
+}
+</style>
+<script id="fx-script-sp">
+(function(){
+  try{ if(/[?&]fx=0(&|$)/.test(location.search)) return; }catch(e){}
+  var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('fx');
+
+  /* 見出しの文字分割 */
+  var TOK=/[A-Za-z0-9¥%,.\-]+[、。」）)!?！？]*|[^\s][、。」』）)!?！？ーｰ]*|\s+/g;
+  function split(el){
+    el.setAttribute('aria-label',el.textContent.replace(/\s+/g,' ').trim());
+    var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null),ns=[],n=0;while(w.nextNode())ns.push(w.currentNode);
+    ns.forEach(function(t){if(!t.nodeValue.trim())return;var f=document.createDocumentFragment();
+      (t.nodeValue.match(TOK)||[]).forEach(function(k){if(/^\s+$/.test(k)){f.appendChild(document.createTextNode(k));return}
+        var s=document.createElement('span');s.className='fx-ch';s.setAttribute('aria-hidden','true');s.style.setProperty('--i',n++);s.textContent=k;f.appendChild(s)});
+      t.parentNode.replaceChild(f,t)});
+    el.classList.add('fx-split');
+  }
+  if(!RM) document.querySelectorAll('.rv h2').forEach(split);
+  function stag(sel){document.querySelectorAll(sel).forEach(function(box){[].forEach.call(box.children,function(c,i){c.style.setProperty('--i',i)})})}
+  stag('.pains');stag('.chips');stag('.map .g');
+  document.querySelectorAll('.rv').forEach(function(s){s.querySelectorAll('.merit').forEach(function(m,i){m.style.setProperty('--i',i)})});
+
+  function once(el,fn,th){if(!el)return;if(RM||!('IntersectionObserver' in window)){fn();return}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fn();io.disconnect()}})},{threshold:th||.3});io.observe(el)}
+  function count(node,to,dur,delay){if(RM)return;var t0=null;node.nodeValue='0';
+    setTimeout(function(){requestAnimationFrame(function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-p,4);
+      node.nodeValue=String(Math.round(to*e));if(p<1)requestAnimationFrame(f)})},delay||0)}
+  function firstNum(el){for(var c=el.firstChild;c;c=c.nextSibling){if(c.nodeType===3&&/^\s*\d+\s*$/.test(c.nodeValue))return c}return null}
+
+  /* ヒーロー：数字カウント＋費用比較バー(インフォグラフィック) */
+  var vs=document.querySelector('.vs');
+  if(vs){
+    var x=vs.querySelector('.old .x'); if(x&&x.firstChild) count(x.firstChild,100,900,750);
+    var nn=vs.querySelector('.new .n'), t=nn&&firstNum(nn); if(t) count(t,30,800,1250);
+    var cost=document.createElement('div');cost.className='fx-cost';cost.setAttribute('aria-hidden','true');
+    cost.innerHTML='<div class="fx-cost-r o"><span>1小間 出展</span><i></i></div><div class="fx-cost-r n"><span>展示会ハック</span><i></i></div>';
+    vs.parentNode.insertBefore(cost,vs.nextSibling);
+    setTimeout(function(){cost.classList.add('on')},RM?0:1500);
+  }
+
+  /* 料金のカウントアップ */
+  document.querySelectorAll('.plan .t .pr').forEach(function(pr){var t=firstNum(pr);if(!t)return;var v=parseInt(t.nodeValue,10);
+    once(pr,function(){count(t,v,900,150)},.8)});
+
+  /* 手順：スクロール連動のタイムライン */
+  (function(){
+    var ul=document.querySelector('.steps'); if(!ul) return;
+    var lis=[].slice.call(ul.children), line=document.createElement('div');line.className='fx-sline';ul.appendChild(line);
+    var tick=false;
+    function upd(){tick=false;var r=ul.getBoundingClientRect(),mid=innerHeight*.62;
+      line.style.height=r.height+'px';
+      var p=Math.min(1,Math.max(0,(mid-r.top)/r.height));line.style.transform='scaleY('+(RM?1:p)+')';
+      lis.forEach(function(li){li.classList.toggle('fx-pass',RM||li.getBoundingClientRect().top+30<mid)})}
+    addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});addEventListener('resize',upd);upd();
+  })();
+
+  /* 上部の読了プログレス */
+  if(!RM){var pg=document.createElement('div');pg.className='fx-prog';document.body.appendChild(pg);var tk=false;
+    addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(function(){tk=false;var h=document.documentElement;
+      pg.style.transform='scaleX('+Math.min(1,h.scrollTop/((h.scrollHeight-h.clientHeight)||1))+')'})}},{passive:true});}
+})();
+</script>
+<!-- ===== FX-LAYER-SP v1 END ===== -->
+
 </body>
 </html>
